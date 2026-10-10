@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>專題開發紀錄網頁與成果簡報 - 大學生報告主題發想_搜集機器人 (v2.0 改善版)</title>
+  <title>專題開發紀錄網頁與成果簡報 - 大學生報告主題發想_搜集機器人 (v2.0 改善完成版)</title>
   <style>
     :root {
       --primary: #06C755; /* LINE Green */
@@ -382,7 +382,7 @@
     }
 
     .chat-bubble {
-      max-width: 82%;
+      max-width: 84%;
       padding: 10px 14px;
       border-radius: 16px;
       font-size: 0.88rem;
@@ -432,6 +432,13 @@
 
     .preset-btn:hover {
       background: #e2e8f0;
+    }
+
+    .preset-btn-highlight {
+      background: #e6f9ed;
+      border-color: #86efac;
+      color: #166534;
+      font-weight: bold;
     }
 
     .chat-input-bar {
@@ -506,7 +513,7 @@
       <div class="brand">
         <div class="brand-icon">💡</div>
         <div class="brand-title">
-          <h1>大學生報告主題發想_搜集機器人 (v2.0 改善版)</h1>
+          <h1>大學生報告主題發想_搜集機器人 (v2.0 改善完成版)</h1>
           <p>LINE Bot 專題開發紀錄網頁與成果簡報</p>
         </div>
       </div>
@@ -541,11 +548,11 @@
       <!-- 區塊 1：課後改善版重點與前後差異對照 -->
       <section class="section-card" id="improvement">
         <div class="section-header">
-          <span class="section-badge-purple">改善版核心</span>
-          <h2>課後作業改善版 (v2.0) 核心成果與前後差異</h2>
+          <span class="section-badge-purple">改善版核心成果</span>
+          <h2>課後作業改善版 (v2.0) 已完成之核心升級與前後差異</h2>
         </div>
         <p style="font-size: 0.95rem; margin-bottom: 12px;">
-          本版本以今日課堂第一版（Commit: <code>4dc5fe7</code>）為起點，選定<strong>「智慧學科自動分類、精準領域搜尋調閱與單筆靈感管理」</strong>進行深度改善，解決第一版點子過多難以查找、未打分類標籤即無法整理的痛點。
+          本版本以今日課堂第一版（Commit: <code>4dc5fe7</code>）為起點，<strong>正式實作完成「一鍵匯出 Markdown 報告大綱草稿」與「智慧學科自動分類」</strong>，讓收集的靈感能直接轉化為具有學術結構的報告大綱！
         </p>
 
         <table class="data-table">
@@ -553,33 +560,39 @@
             <tr>
               <th style="width: 22%;">比較面向</th>
               <th style="width: 32%;">課堂第一版 (v1.0)</th>
-              <th style="width: 32%;">課後改善版 (v2.0)</th>
+              <th style="width: 32%;">課後改善完成版 (v2.0)</th>
               <th style="width: 14%;">效益</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td><strong>報告大綱生成<br>(核心改善亮點)</strong></td>
+              <td>無此功能（僅能記錄標題）</td>
+              <td><strong>一鍵生成 Markdown 報告大綱草稿（指令：<code>大綱：1</code>）</strong>，自動涵蓋研究背景、探討核心與預期效益並匯出實體檔案</td>
+              <td><span class="badge-v2">點子變報告</span></td>
+            </tr>
+            <tr>
               <td><strong>學科分類處理</strong></td>
-              <td>未填寫「分類：」時，僅能死板標記為 <code>一般/未分類</code></td>
+              <td>未填寫「分類：」時，僅能標記為 <code>一般/未分類</code></td>
               <td><strong>內建關鍵字特徵庫，智慧自動推測學科領域</strong>（如輸入「AI」自動標記為【資訊科技】）</td>
               <td><span class="badge-v2">省時智慧</span></td>
             </tr>
             <tr>
               <td><strong>靈感調閱機制</strong></td>
-              <td>只能輸入「查看靈感」一口氣列出全部，主題多時雜亂</td>
-              <td><strong>支援分類篩選與關鍵字搜尋</strong>（如 <code>查看：資訊科技</code>、<code>搜尋：心理</code>）</td>
+              <td>只能列出全部點子，主題多時雜亂</td>
+              <td><strong>支援領域篩選與關鍵字搜尋</strong>（如 <code>查看：資訊科技</code>）</td>
               <td><span class="badge-v2">精準檢索</span></td>
             </tr>
             <tr>
               <td><strong>點子管理能力</strong></td>
-              <td>只能「清空靈感」全部刪除，無法單獨剔除</td>
+              <td>只能整份清空</td>
               <td><strong>支援指定編號刪除與動態重排</strong>（如 <code>刪除：1</code>）</td>
               <td><span class="badge-v2">彈性管理</span></td>
             </tr>
             <tr>
               <td><strong>邊界防呆機制</strong></td>
               <td>僅防範空白字串</td>
-              <td><strong>增補編號越界檢查（如刪除99）與非數字型別防護</strong>，避免當機</td>
+              <td><strong>增補大綱與刪除之編號越界檢查（如大綱：99）</strong>，避免程式中斷</td>
               <td><span class="badge-v2">強健穩定</span></td>
             </tr>
           </tbody>
@@ -600,10 +613,10 @@
             <strong>使用對象：</strong>大專院校學生、常需進行期末專題、分組討論或學期論文的同學。
           </li>
           <li class="info-item">
-            <strong>想解決的問題：</strong>大學生在日常通勤、走路、滑社群或睡前常靈光一閃冒出絕佳報告主題，但往往因為手邊沒專門工具或備忘錄散落，導致「點子常飛掉」。本 Bot 讓同學在最常用的 LINE 中即時隨手一句話記錄，並自動分類整理。
+            <strong>想解決的問題：</strong>大學生在日常通勤、走路、滑社群或睡前常靈光一閃冒出絕佳報告主題，但往往因為手邊沒專門工具或備忘錄散落，導致「點子常飛掉」。本 Bot 讓同學在最常用的 LINE 中即時隨手一句話記錄，並自動分類整理，還能一鍵生成報告大綱！
           </li>
           <li class="info-item">
-            <strong>核心功能：</strong>收到點子後即時記錄內容、進行智慧學科歸類，並提供隨時調閱、領域篩選與編號刪除管理。
+            <strong>核心功能：</strong>收到點子後即時記錄、智慧學科歸類，並能隨時調閱、篩選及<strong>一鍵產出 Markdown 三段式報告大綱草稿</strong>。
           </li>
         </ul>
       </section>
@@ -617,27 +630,33 @@
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
           <div style="background: #f8fafc; padding: 16px; border-radius: 10px; border: 1px solid var(--border);">
-            <h4 style="color: #15803d; margin-bottom: 8px;">✅ 改善示範 1：智慧自動分類</h4>
+            <h4 style="color: #15803d; margin-bottom: 8px;">🌟 改善亮點：一鍵生成報告大綱</h4>
+            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 4px;">使用者輸入：</p>
+            <div class="code-snippet" style="display: block; margin-bottom: 8px;">大綱：1</div>
+            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 4px;">Bot 回覆：</p>
+            <div style="font-size: 0.82rem; background: white; padding: 8px; border-radius: 6px; border: 1px solid #e2e8f0; line-height: 1.5;">
+              📝 已為您成功生成【社群媒體對大學生焦慮之影響】的報告大綱草稿！<br>
+              🏷️ 領域分類：社會心理<br>
+              ────────────── 大綱預覽 ──────────────<br>
+              一、研究背景與動機（探討研究重要性）<br>
+              二、主要探討核心面向（理論、實務案例、困境分析）<br>
+              三、預期研究結論與效益（提出對策與展望）<br>
+              ────────────────────────────────────<br>
+              💾 已同步在資料夾中匯出為：報告大綱_1_社群媒體對大學生焦慮之影響.md
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; padding: 16px; border-radius: 10px; border: 1px solid var(--border);">
+            <h4 style="color: #15803d; margin-bottom: 8px;">✨ 改善功能：智慧自動分類</h4>
             <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 4px;">使用者輸入：</p>
             <div class="code-snippet" style="display: block; margin-bottom: 8px;">靈感：生成式 AI 在程式教學之成效評估</div>
             <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 4px;">Bot 回覆：</p>
             <div style="font-size: 0.85rem; background: white; padding: 8px; border-radius: 6px; border: 1px solid #e2e8f0;">
               ✅ 已為您成功記錄報告靈感！<br>
               📌 主題：生成式 AI 在程式教學之成效評估<br>
-              🏷️ 分類：資訊科技（✨ 智慧識別歸類）<br>
-              🔢 目前編號：第 1 筆<br>
-              💡 提示：輸入「搜尋：科技」可調閱特定領域。
-            </div>
-          </div>
-
-          <div style="background: #f8fafc; padding: 16px; border-radius: 10px; border: 1px solid var(--border);">
-            <h4 style="color: #15803d; margin-bottom: 8px;">🔍 改善示範 2：領域篩選調閱</h4>
-            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 4px;">使用者輸入：</p>
-            <div class="code-snippet" style="display: block; margin-bottom: 8px;">查看：資訊科技</div>
-            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 4px;">Bot 回覆：</p>
-            <div style="font-size: 0.85rem; background: white; padding: 8px; border-radius: 6px; border: 1px solid #e2e8f0;">
-              🔍 「資訊科技」相關報告點子篩選結果（共 1 則）：<br>
-              1. [資訊科技] 生成式 AI 在程式教學之成效評估
+              🏷️ 分類：資訊科技（✨ 系統已智慧識別領域）<br>
+              🔢 目前編號：第 2 筆<br>
+              💡 提示：輸入「大綱：2」可一鍵生成此題目的三段式報告大綱草稿！
             </div>
           </div>
         </div>
@@ -662,10 +681,10 @@
         </div>
         <ol style="padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem;">
           <li><strong>需求確立與計畫撰寫：</strong>分析大專生主題收集痛點，定調單一核心功能，撰寫六大計畫項目。</li>
-          <li><strong>核心邏輯開發 (v1.0)：</strong>運用正規表達式匹配與狀態管理，完成第一版初次提交（Commit 1: <code>4dc5fe7</code>）。</li>
-          <li><strong>發掘問題與升級 (v2.0)：</strong>實際測試發現手動輸入分類過繁瑣、點子多時難以查找，升級智慧關鍵字分類、領域篩選與單筆刪除（Commit 2: <code>75edcdd</code>）。</li>
-          <li><strong>嚴謹審查與堅持真實：</strong>使用者主動提出「有缺漏請不要自行編造，詢問我補上」，將外部網址、個人姓名學號與真實心得嚴格校正，確立誠實求是的開發流程。</li>
-          <li><strong>自動化驗證與網頁整合：</strong>撰寫 <code>test_bot.py</code> 驗證 5 項測試 100% 通過，並打造網頁 LINE 模擬器與 5 頁成果簡報（Commit 3: <code>00a5568</code>）。</li>
+          <li><strong>核心邏輯開發 (v1.0)：</strong>完成第一版點子記錄與清單調閱，並於 Git 建立初版提交（Commit 1: <code>4dc5fe7</code>）。</li>
+          <li><strong>發掘痛點與升級功能 (v2.0)：</strong>使用者指出「點子只收集還不夠，能直接生大綱才實用」，因此鎖定實作<strong>「一鍵生成 Markdown 報告大綱草稿」</strong>與「智慧學科自動分類」，並捨棄過度複雜的外部 LINE Webhook 伺服器建置。</li>
+          <li><strong>邊界防呆與例外捕捉：</strong>加入大綱與刪除之編號越界防呆，杜絕未預期崩潰。</li>
+          <li><strong>自動化驗證與網頁整合：</strong>更新 <code>test_bot.py</code> 通過 5 項單元測試，並在網頁模擬器中加入大綱生成測試按鈕。</li>
         </ol>
       </section>
 
@@ -683,7 +702,7 @@
           <li class="info-item">
             <strong>代表性提示指令 (Prompt)：</strong>
             <div class="code-snippet" style="display: block; margin-top: 6px; padding: 10px;">
-              「請依照我的 LINE Bot 專題資料，升級 bot.py 加入智慧關鍵字自動分類、領域篩選與單筆刪除功能，並加入嚴格的防呆捕捉與自動化測試腳本。」
+              「請依照我的 LINE Bot 專題資料，實作一鍵生成 Markdown 報告大綱草稿功能，並加上智慧關鍵字自動分類、防呆捕捉與自動化單元測試。」
             </div>
           </li>
           <li class="info-item">
@@ -691,7 +710,9 @@
             <div class="alert-box-warning">
               <strong>【真實經驗 1：修正 Git 初始化與目錄架構】</strong><br>
               最初 AI 在背景嘗試直接執行 <code>git add</code>，但遇到 macOS 沙盒權限確認。我察覺此資料夾應全新獨立管理，因此按下拒絕，並主動指示 AI「GIPINIT這個新的資料夾」，促使 AI 在獨立的「嘻嘻」資料夾中重新建立乾淨的 Git 倉庫，並於外層加入 <code>.gitignore</code> 隔離，有效避免兩個專案衝突。<br><br>
-              <strong>【真實經驗 2：堅持真實性原則，杜絕虛構】</strong><br>
+              <strong>【真實經驗 2：精準聚焦改善項目，拒絕過度複雜規劃】</strong><br>
+              AI 先前曾列出「串接 LINE Messaging API 與 Webhook 雲端部署」等未來項目，我及時審查並明確指出「該項目未討論且過於困難，本作業應交付改版完成品」，並指定實作「一鍵匯出 Markdown 報告大綱草稿」，讓專案精準聚焦在最有價值的實用功能上。<br><br>
+              <strong>【真實經驗 3：堅持真實性原則，杜絕虛構】</strong><br>
               我特別要求 AI：「裡面的內容若有缺漏請不要自行編造，請詢問我讓我補上。」促使 AI 主動全面盤點專案中的外部連結、姓名學號與個人心得，凡未確認者一律標註「待補」，落實了嚴謹求實的工程態度。
             </div>
           </li>
@@ -702,7 +723,7 @@
       <section class="section-card" id="test-results">
         <div class="section-header">
           <span class="section-badge">五、測試結果</span>
-          <h2>三個核心測試情境之預期與實際結果（實測證明）</h2>
+          <h2>核心測試情境之預期與實際結果（實測證明）</h2>
         </div>
         <p style="font-size: 0.9rem; color: #64748b;">
           以下為本機執行 <code>python3 test_bot.py</code> 的實測數據對照表（亦可使用右側模擬器親自驗證）：
@@ -711,33 +732,40 @@
         <table class="data-table">
           <thead>
             <tr>
-              <th style="width: 15%;">測試編號</th>
-              <th style="width: 25%;">測試輸入內容</th>
-              <th style="width: 28%;">預期結果</th>
-              <th style="width: 22%;">實際執行結果</th>
+              <th style="width: 16%;">測試編號</th>
+              <th style="width: 20%;">測試輸入內容</th>
+              <th style="width: 30%;">預期結果</th>
+              <th style="width: 24%;">實際執行結果</th>
               <th style="width: 10%;">判定</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>情境 1<br>(自動分類)</strong></td>
+              <td><strong>核心改善 1<br>(生成大綱)</strong></td>
+              <td><span class="code-snippet">大綱：1</span></td>
+              <td>提取編號 1 之主題與學科，自動生成三段式結構報告大綱並實體匯出 .md 檔案</td>
+              <td>成功產出大綱結構並在目錄產生 <code>報告大綱_1_...md</code></td>
+              <td><span class="badge-pass">PASS ✅</span></td>
+            </tr>
+            <tr>
+              <td><strong>核心改善 2<br>(大綱防呆)</strong></td>
+              <td><span class="code-snippet">大綱：99</span></td>
+              <td>攔截無效索引，提示有效編號範圍，避免系統崩潰</td>
+              <td>提示「找不到編號 99，有效範圍 1~1」，系統安全</td>
+              <td><span class="badge-pass">PASS ✅</span></td>
+            </tr>
+            <tr>
+              <td><strong>功能改善 3<br>(自動分類)</strong></td>
               <td><span class="code-snippet">靈感：生成式 AI 在程式教學之成效評估</span></td>
               <td>未輸入分類，但能自動推測識別為【資訊科技】並成功存檔</td>
               <td>回傳 📌 主題與 🏷️ 分類【資訊科技】及智慧識別標記</td>
               <td><span class="badge-pass">PASS ✅</span></td>
             </tr>
             <tr>
-              <td><strong>情境 2<br>(領域篩選)</strong></td>
+              <td><strong>功能改善 4<br>(領域篩選)</strong></td>
               <td><span class="code-snippet">查看：資訊科技</span></td>
               <td>精準過濾其他領域，僅列出屬於「資訊科技」之報告題目</td>
               <td>精準顯示科技類題目，未出現其他無關學科</td>
-              <td><span class="badge-pass">PASS ✅</span></td>
-            </tr>
-            <tr>
-              <td><strong>情境 3<br>(防呆防護)</strong></td>
-              <td><span class="code-snippet">刪除：99</span></td>
-              <td>辨識編號超出範圍，提示有效編號區間，系統不當機</td>
-              <td>提示「找不到編號 99，目前範圍 1~2」，資料完整無損</td>
               <td><span class="badge-pass">PASS ✅</span></td>
             </tr>
           </tbody>
@@ -764,19 +792,19 @@
               <li><strong>作者姓名：</strong>【待補：請填寫您的真實姓名】 ｜ <strong>學號：</strong>【待補：請填寫您的學號】</li>
               <li><strong>使用對象：</strong>大專院校學生、常需進行分組報告與期末論文的同學。</li>
               <li><strong>解決痛點：</strong>日常生活冒出絕佳報告點子但常「飛掉」，隨手記在備忘錄又雜亂散落。</li>
-              <li><strong>解決策略：</strong>在最熟悉的 LINE 中，透過自然指令即時捕捉、智慧歸類並隨時檢索。</li>
+              <li><strong>解決策略：</strong>在最熟悉的 LINE 中，透過自然指令即時捕捉、智慧歸類，並能隨時產出完整報告大綱！</li>
             </ul>
           </div>
 
           <!-- Slide 2 -->
           <div class="slide-card">
             <span class="slide-page-num">Slide 2 / 5</span>
-            <h3>⚙️ 核心功能與對話範例 (v2.0 改善版)</h3>
+            <h3>⚙️ 核心功能與對話範例 (v2.0 改善完成版)</h3>
             <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
-              <li><strong>核心功能：</strong>點子即時記錄、智慧學科推測、領域搜尋調閱與單筆靈感管理。</li>
-              <li><strong>對話範例 1（智慧自動歸類）：</strong>輸入「靈感：AI 在醫療應用」👉 自動標記【資訊科技】並回覆確認。</li>
-              <li><strong>對話範例 2（精準篩選調閱）：</strong>輸入「查看：資訊科技」👉 精準列出科技領域的所有點子。</li>
-              <li><strong>對話範例 3（異常防呆提示）：</strong>輸入「刪除：99」👉 提示有效編號範圍，避免系統錯誤。</li>
+              <li><strong>核心功能：</strong>點子即時記錄、智慧學科推測、領域搜尋調閱與<strong>一鍵生成 Markdown 報告大綱草稿</strong>。</li>
+              <li><strong>對話範例 1（🌟 核心改善：一鍵生成大綱）：</strong>輸入「大綱：1」👉 自動輸出研究背景、核心問題與效益，並實體產生 Markdown 檔案。</li>
+              <li><strong>對話範例 2（智慧自動歸類）：</strong>輸入「靈感：AI 在醫療應用」👉 自動標記【資訊科技】並回覆確認。</li>
+              <li><strong>對話範例 3（異常防呆提示）：</strong>輸入「大綱：99」👉 提示有效編號範圍，避免系統錯誤。</li>
             </ul>
           </div>
 
@@ -785,9 +813,10 @@
             <span class="slide-page-num">Slide 3 / 5</span>
             <h3>🧪 實際操作與測試結果 (實測證明)</h3>
             <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
-              <li><strong>測試 1 (自動分類)：</strong>輸入「靈感：生成式 AI 在程式教學」👉 成功自動分類為資訊科技（PASS ✅）</li>
-              <li><strong>測試 2 (領域搜尋)：</strong>輸入「查看：資訊科技」👉 精準篩選出對應主題，無關領域不出現（PASS ✅）</li>
-              <li><strong>測試 3 (越界防呆)：</strong>輸入「刪除：99」👉 提示找不到編號，資料庫長度保持安全（PASS ✅）</li>
+              <li><strong>測試 1 (一鍵生成大綱)：</strong>輸入「大綱：1」👉 成功輸出三段式結構並匯出實體檔案（PASS ✅）</li>
+              <li><strong>測試 2 (大綱越界防呆)：</strong>輸入「大綱：99」👉 正確提示有效範圍，避免崩潰（PASS ✅）</li>
+              <li><strong>測試 3 (自動分類)：</strong>輸入「靈感：生成式 AI 在程式教學」👉 成功自動分類為資訊科技（PASS ✅）</li>
+              <li><strong>測試 4 (領域搜尋)：</strong>輸入「查看：資訊科技」👉 精準篩選出對應主題（PASS ✅）</li>
               <li><strong>實測截圖狀態：</strong>【待補：待使用者依修正後版本完成親自實測後，截圖置入於此】</li>
             </ul>
           </div>
@@ -798,12 +827,9 @@
             <h3>🤖 AI 如何協助，以及我如何檢查或修正</h3>
             <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
               <li><strong>AI 工具與分工：</strong>使用 Antigravity Agent 協同架構程式碼、正規表達式與單元測試。</li>
-              <li><strong>真實檢查與修正經歷 1：</strong>
-                AI 原先在背景直接執行 <code>git add</code> 遭遇權限問題，我及時按下拒絕並指示「GIPINIT這個新的資料夾」，促使建立獨立倉庫並在 <code>.gitignore</code> 進行隔離。
-              </li>
-              <li><strong>真實檢查與修正經歷 2：</strong>
-                我特別要求 AI「內容有缺漏請不要自行編造，請詢問我補上」，嚴格要求標示待補並由人工確認，維護資料真實性。
-              </li>
+              <li><strong>真實檢查與修正 1（修正 Git 架構）：</strong>AI 初版嘗試推外層，我即時拒絕並指示「GIPINIT這個新的資料夾」，促成獨立資料夾管理。</li>
+              <li><strong>真實檢查與修正 2（調整改善目標）：</strong>AI 曾列出雲端 Webhook 等複雜項目，我及時修正聚焦在「一鍵生成報告大綱」的具體功能實作。</li>
+              <li><strong>真實檢查與修正 3（堅持真實杜絕編造）：</strong>我要求 AI「內容有缺漏請不要自行編造」，落實真實資料填寫。</li>
             </ul>
           </div>
 
@@ -859,7 +885,7 @@
       <section class="section-card" id="security">
         <div class="section-header">
           <span class="section-badge">九、安全與限制</span>
-          <h2>安全性規範與已知限制說明</h2>
+          <h2>安全性規範說明</h2>
         </div>
         <div class="alert-box">
           <strong>🔒 安全金鑰合規聲明：</strong><br>
@@ -878,33 +904,31 @@
             <div class="chat-bot-avatar">🤖</div>
             <div>
               <div class="chat-title">報告主題發想Bot (v2.0)</div>
-              <div class="chat-status">🟢 改善版在線測試中</div>
+              <div class="chat-status">🟢 改善完成版在線測試</div>
             </div>
           </div>
 
           <div class="chat-messages" id="chatMessages">
-            <div class="chat-bubble bubble-bot">👋 您好！我是「報告主題發想_搜集機器人」(v2.0 改善版)。
+            <div class="chat-bubble bubble-bot">👋 您好！我是「報告主題發想_搜集機器人」(v2.0 改善完成版)。
 
-✨ 本版新增功能：
-1. 智慧自動分類（無需手動打分類）
-2. 領域篩選（查看：科技）
-3. 單筆刪除（刪除：1）
+🌟 本版核心升級亮點：
+輸入「大綱：1」即可將收集的題目一鍵生成 Markdown 報告大綱草稿！
 
-💡 點擊下方快速按鈕即可現場實測！</div>
+💡 點擊下方按鈕或打字現場實測！</div>
           </div>
 
-          <!-- 快速測試按鈕 (包含 v2.0 改善功能) -->
+          <!-- 快速測試按鈕 (特別突出大綱生成) -->
           <div class="quick-presets">
-            <button class="preset-btn" onclick="sendPreset('自動分類')">⚡ 1.智慧分類</button>
-            <button class="preset-btn" onclick="sendPreset('篩選')">⚡ 2.領域篩選</button>
-            <button class="preset-btn" onclick="sendPreset('越界刪除')">⚡ 3.越界防呆</button>
-            <button class="preset-btn" onclick="sendPreset('正常刪除')">⚡ 4.正常刪除</button>
+            <button class="preset-btn preset-btn-highlight" onclick="sendPreset('大綱')">🌟 1.生成大綱</button>
+            <button class="preset-btn" onclick="sendPreset('自動分類')">⚡ 2.智慧分類</button>
+            <button class="preset-btn" onclick="sendPreset('篩選')">⚡ 3.領域篩選</button>
+            <button class="preset-btn" onclick="sendPreset('越界防呆')">⚡ 4.大綱防呆</button>
             <button class="preset-btn" onclick="sendPreset('查看全部')">⚡ 5.查看全部</button>
           </div>
 
           <!-- 輸入列 -->
           <div class="chat-input-bar">
-            <input type="text" id="userInput" class="chat-input" placeholder="輸入靈感、搜尋或刪除..." onkeydown="if(event.key==='Enter') sendMessage()">
+            <input type="text" id="userInput" class="chat-input" placeholder="輸入「大綱：1」或「靈感：...」" onkeydown="if(event.key==='Enter') sendMessage()">
             <button class="chat-send-btn" onclick="sendMessage()">➤</button>
           </div>
 
@@ -918,7 +942,7 @@
   </div>
 
   <script>
-    // 前端模擬器資料儲存與邏輯（與 bot.py v2.0 完全一致）
+    // 前端模擬器資料儲存與邏輯（與 bot.py v2.0 保持一致）
     let ideas = [
       { topic: "社群媒體對大學生焦慮之影響", category: "社會心理" }
     ];
@@ -956,9 +980,7 @@
       const recordMatch = text.match(/^(靈感|記)[:：]/);
       if (recordMatch) {
         const content = text.slice(recordMatch[0].length).trim();
-        if (!content) {
-          return "⚠️ 請輸入要記錄的報告靈感主題喔！\n💡 正確格式範例：\n   • 智慧分類：「靈感：生成式 AI 在醫療的應用」\n   • 自訂分類：「靈感：永續農業 分類：商管」";
-        }
+        if (!content) return "⚠️ 請輸入要記錄的報告靈感主題喔！";
 
         const catMatch = content.match(/[\s,，]+(分類|類別)[:：]\s*(.+)$/);
         let topic = content;
@@ -976,11 +998,25 @@
         if (!topic) return "⚠️ 靈感主題不可為空白！";
 
         ideas.push({ topic, category });
-        const autoNote = isAuto ? "（✨ 系統已為您智慧識別歸類）" : "";
-        return `✅ 已為您成功記錄報告靈感！\n📌 主題：${topic}\n🏷️ 分類：${category} ${autoNote}\n🔢 目前編號：第 ${ideas.length} 筆\n💡 提示：輸入「搜尋：[關鍵字]」隨時調閱。`;
+        const autoNote = isAuto ? "（✨ 系統已智慧識別領域）" : "";
+        return `✅ 已為您成功記錄報告靈感！\n📌 主題：${topic}\n🏷️ 分類：${category} ${autoNote}\n🔢 目前編號：第 ${ideas.length} 筆\n💡 提示：輸入「大綱：${ideas.length}」可一鍵生成此題目的三段式報告大綱草稿！`;
       }
 
-      // 2. 搜尋 / 篩選
+      // 2. 🌟 核心改善亮點：一鍵生成報告大綱
+      const outlineMatch = text.match(/^(匯出大綱|大綱|生成大綱)[:：]\s*(.*)$/);
+      if (outlineMatch) {
+        const arg = outlineMatch[2].trim();
+        if (!arg) return "⚠️ 請輸入要生成大綱的靈感編號！例如：「大綱：1」。";
+        const idx = parseInt(arg, 10);
+        if (isNaN(idx)) return `⚠️ 編號「${arg}」非有效數字！請輸入數字編號。`;
+        if (idx < 1 || idx > ideas.length) {
+          return `⚠️ 找不到編號 ${idx} 的報告主題！\n💡 目前有效編號範圍為 1 ~ ${ideas.length}。`;
+        }
+        const item = ideas[idx - 1];
+        return `📝 已為您成功生成【${item.topic}】的報告大綱草稿！\n🏷️ 領域分類：${item.category}\n\n────────────── 大綱預覽 ──────────────\n一、研究背景與動機\n    • 探討現代情境下「${item.topic}」之研究重要性與問題意識。\n二、主要探討核心面向\n    1. 文獻理論與模型基礎\n    2. 實務案例與關鍵影響因子分析\n    3. 現行困境與實踐挑戰\n三、預期研究結論與效益\n    • 提出具體改善策略與未來展望方向\n────────────────────────────────────\n💾 已同步匯出為：報告大綱_${idx}_${item.topic}.md\n💡 提示：點子已經結構化，可直接複製或拿來寫期末報告！`;
+      }
+
+      // 3. 搜尋 / 篩選
       const searchMatch = text.match(/^(搜尋|查看|篩選|查)[:：]\s*(.+)$/);
       if (searchMatch) {
         const kw = searchMatch[2].trim().toLowerCase();
@@ -991,51 +1027,41 @@
           }
         });
 
-        if (matched.length === 0) {
-          return `🔍 找不到與「${searchMatch[2].trim()}」相符的報告主題。\n💡 提示：輸入「查看靈感」可檢視所有主題。`;
-        }
+        if (matched.length === 0) return `🔍 找不到與「${searchMatch[2].trim()}」相符的報告主題。`;
 
         let res = `🔍 「${searchMatch[2].trim()}」相關報告點子篩選結果（共 ${matched.length} 則）：\n`;
         matched.forEach(m => {
           res += `${m.idx}. [${m.item.category}] ${m.item.topic}\n`;
         });
+        res += "\n💡 提示：輸入「大綱：[編號]」可直接產生該篇大綱！";
         return res;
       }
 
-      // 3. 查看全部
+      // 4. 查看全部
       if (["查看靈感", "查看清單", "清單", "列表", "全部靈感"].includes(text)) {
         if (ideas.length === 0) return "📋 目前資料庫內沒有任何報告靈感喔！";
         let res = `📋 目前已收集的報告點子清單（共 ${ideas.length} 則）：\n`;
         ideas.forEach((item, i) => {
           res += `${i + 1}. [${item.category}] ${item.topic}\n`;
         });
-        res += "\n💡 提示：輸入「刪除：[編號]」可移除指定點子。";
+        res += "\n💡 提示：輸入「大綱：[編號]」可一鍵生成報告大綱！";
         return res;
       }
 
-      // 4. 單筆刪除
+      // 5. 單筆刪除
       const delMatch = text.match(/^刪除[:：]\s*(.*)$/);
       if (delMatch) {
         const arg = delMatch[1].trim();
-        if (!arg) return "⚠️ 請提供要刪除的靈感編號！例如：「刪除：1」。";
         const idx = parseInt(arg, 10);
-        if (isNaN(idx)) return `⚠️ 輸入的編號「${arg}」不是有效數字！`;
-        if (idx < 1 || idx > ideas.length) {
-          return `⚠️ 找不到編號 ${idx} 的報告點子！\n💡 目前有效編號範圍為 1 ~ ${ideas.length}。`;
+        if (isNaN(idx) || idx < 1 || idx > ideas.length) {
+          return `⚠️ 找不到編號 ${arg} 的報告點子！目前有效範圍 1 ~ ${ideas.length}。`;
         }
         const removed = ideas.splice(idx - 1, 1)[0];
-        return `🗑️ 已成功刪除編號 ${idx} 的報告主題！\n📌 移除內容：[${removed.category}] ${removed.topic}\n📊 剩餘數量：${ideas.length} 則`;
-      }
-
-      // 5. 清空
-      if (["清空靈感", "清除靈感"].includes(text)) {
-        const count = ideas.length;
-        ideas = [];
-        return `🗑️ 已成功清空靈感清單！（共清除了 ${count} 則）`;
+        return `🗑️ 已成功刪除編號 ${idx} 的報告主題：[${removed.category}] ${removed.topic}`;
       }
 
       // 6. 未支援
-      return "👋 您好！我是「報告主題發想_搜集機器人」(v2.0 改善版)。\n\n🛠️ 支援指令：\n1. 記錄：「靈感：[主題]」（智慧自動分類）\n2. 篩選：「查看：[分類]」或「搜尋：[關鍵字]」\n3. 清單：「查看靈感」\n4. 刪除：「刪除：[編號]」";
+      return "👋 您好！我是「報告主題發想_搜集機器人」(v2.0 改善完成版)。\n\n🛠️ 支援指令：\n1. 記錄：「靈感：[主題]」\n2. 🌟 生大綱：「大綱：[編號]」\n3. 篩選：「查看：[分類]」\n4. 清單：「查看靈感」\n5. 刪除：「刪除：[編號]」";
     }
 
     function sendMessage() {
@@ -1054,14 +1080,14 @@
 
     function sendPreset(type) {
       let text = "";
-      if (type === '自動分類') {
+      if (type === '大綱') {
+        text = "大綱：1";
+      } else if (type === '自動分類') {
         text = "靈感：生成式 AI 在程式教學之成效評估";
       } else if (type === '篩選') {
         text = "查看：資訊科技";
-      } else if (type === '越界刪除') {
-        text = "刪除：99";
-      } else if (type === '正常刪除') {
-        text = "刪除：1";
+      } else if (type === '越界防呆') {
+        text = "大綱：99";
       } else if (type === '查看全部') {
         text = "查看靈感";
       }
@@ -1080,7 +1106,7 @@
       const container = document.getElementById('chatMessages');
       container.innerHTML = `
         <div class="chat-bubble bubble-bot">👋 模擬器已重置為初始狀態！
-隨時點擊上方快捷按鈕或直接輸入進行實測。</div>
+隨時點擊上方【🌟 1.生成大綱】或直接輸入進行實測。</div>
       `;
     }
   </script>
