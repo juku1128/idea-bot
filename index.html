@@ -534,12 +534,10 @@
       <section class="section-card">
         <div class="section-header">
           <span class="section-badge">專案基本資訊</span>
-          <h2>作者與專題身分資訊</h2>
+          <h2>專題與開源倉庫資訊</h2>
         </div>
         <ul class="info-list">
           <li class="info-item"><strong>專題名稱 / 機器人名稱：</strong>大學生報告主題發想_搜集機器人（IdeaCatcher Bot）</li>
-          <li class="info-item"><strong>作者真實姓名：</strong>【待補：請填寫您的真實姓名】</li>
-          <li class="info-item"><strong>學生學號：</strong>【待補：請填寫您的學號】</li>
           <li class="info-item"><strong>GitHub 專案倉庫：</strong><a href="https://github.com/juku1128/idea-bot" target="_blank" class="code-snippet">https://github.com/juku1128/idea-bot</a></li>
           <li class="info-item"><strong>GitHub Pages 網頁：</strong><a href="https://juku1128.github.io/idea-bot/" target="_blank" class="code-snippet">https://juku1128.github.io/idea-bot/</a></li>
         </ul>
@@ -713,7 +711,7 @@
               <strong>【真實經驗 2：精準聚焦改善項目，拒絕過度複雜規劃】</strong><br>
               AI 先前曾列出「串接 LINE Messaging API 與 Webhook 雲端部署」等未來項目，我及時審查並明確指出「該項目未討論且過於困難，本作業應交付改版完成品」，並指定實作「一鍵匯出 Markdown 報告大綱草稿」，讓專案精準聚焦在最有價值的實用功能上。<br><br>
               <strong>【真實經驗 3：堅持真實性原則，杜絕虛構】</strong><br>
-              我特別要求 AI：「裡面的內容若有缺漏請不要自行編造，請詢問我讓我補上。」促使 AI 主動全面盤點專案中的外部連結、姓名學號與個人心得，凡未確認者一律標註「待補」，落實了嚴謹求實的工程態度。
+              我特別要求 AI：「裡面的內容若有缺漏請不要自行編造，請詢問我讓我補上。」促使 AI 主動全面盤點專案中的外部連結與個人心得，凡未確認者一律標註「待補」，落實了嚴謹求實的工程態度。
             </div>
           </li>
         </ul>
@@ -789,7 +787,6 @@
             <h3>🎯 專題名稱、使用對象與想解決的問題</h3>
             <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
               <li><strong>專題 / 機器人名稱：</strong>大學生報告主題發想_搜集機器人（IdeaCatcher Bot）</li>
-              <li><strong>作者姓名：</strong>【待補：請填寫您的真實姓名】 ｜ <strong>學號：</strong>【待補：請填寫您的學號】</li>
               <li><strong>使用對象：</strong>大專院校學生、常需進行分組報告與期末論文的同學。</li>
               <li><strong>解決痛點：</strong>日常生活冒出絕佳報告點子但常「飛掉」，隨手記在備忘錄又雜亂散落。</li>
               <li><strong>解決策略：</strong>在最熟悉的 LINE 中，透過自然指令即時捕捉、智慧歸類，並能隨時產出完整報告大綱！</li>
@@ -863,7 +860,7 @@
         </p>
 
         <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-family: monospace; font-size: 0.9rem; line-height: 1.8;">
-          專題名稱：大學生報告主題發想_搜集機器人 (v2.0 改善版)<br>
+          專題名稱：大學生報告主題發想_搜集機器人 (v2.0 改善完成版)<br>
           GitHub 專案連結：https://github.com/juku1128/idea-bot<br>
           開發紀錄網頁連結：https://juku1128.github.io/idea-bot/<br>
           實測證明位置（網頁段落）：開發紀錄網頁「五、測試結果」實測證明表格與右側 LINE 模擬器
@@ -888,8 +885,8 @@
           <h2>安全性規範說明</h2>
         </div>
         <div class="alert-box">
-          <strong>🔒 安全金鑰合規聲明：</strong><br>
-          本專案嚴格遵守金鑰安全規範。專案中 LINE Messaging API 金鑰皆以環境變數佔位文字說明（<code>YOUR_LINE_CHANNEL_SECRET_PLACEHOLDER</code>），絕無任何真實金鑰、通行碼或個人敏感資料外洩至程式庫或公開網頁。
+          <strong>🔒 安全與個資合規聲明：</strong><br>
+          本專案嚴格遵守資安與個人隱私規範，無任何個人姓名、學號或真實通訊金鑰外洩至公開網頁與開源倉庫。
         </div>
       </section>
 
@@ -1106,7 +1103,7 @@
       const container = document.getElementById('chatMessages');
       container.innerHTML = `
         <div class="chat-bubble bubble-bot">👋 模擬器已重置為初始狀態！
-隨時點擊上方【🌟 1.生成大綱】或直接輸入進行實測。</div>
+隨時點擊上方【🌟 1. 生成大綱】或直接輸入進行實測。</div>
       `;
     }
   </script>
