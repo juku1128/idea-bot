@@ -518,7 +518,8 @@
         </div>
       </div>
       <div class="nav-actions">
-        <button class="btn btn-primary" onclick="window.print()">🖨️ 匯出成果簡報/計畫 PDF</button>
+        <a href="slides.html" target="_blank" class="btn btn-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">🖥️ 開啟 16:9 橫式簡報</a>
+        <button class="btn btn-outline" onclick="window.print()">🖨️ 匯出紀錄網頁 PDF</button>
         <button class="btn btn-outline" onclick="resetSimulator()">🔄 重置模擬器</button>
       </div>
     </div>
@@ -774,75 +775,85 @@
       <section class="section-card" id="slides">
         <div class="section-header">
           <span class="section-badge">六、成果簡報 (Slides)</span>
-          <h2>成果簡報檢視專區（共 5 頁，每頁呈現一重點）</h2>
+          <h2>成果簡報檢視專區（標準 5 頁橫式架構）</h2>
         </div>
-        <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 12px;">
-          點選右上角「🖨️ 匯出成果簡報/計畫 PDF」按鈕，即可將下列 5 頁自動排版為標準 5 頁簡報 PDF：
-        </p>
+        
+        <div style="background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%); border: 1px solid #bfdbfe; border-radius: 10px; padding: 14px 18px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <strong style="color: #1e40af; font-size: 0.95rem;">🖥️ 獨立 16:9 橫式簡報播放器已就緒！</strong>
+            <p style="font-size: 0.85rem; color: #475569; margin-top: 2px;">
+              支援鍵盤左右箭頭換頁、全覽模式，並可一鍵直接匯出乾淨無裁切的標準 5 頁橫向簡報 PDF。
+            </p>
+          </div>
+          <a href="slides.html" target="_blank" class="btn btn-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+            🖥️ 開啟全螢幕橫式簡報
+          </a>
+        </div>
 
         <div class="slides-container">
           <!-- Slide 1 -->
           <div class="slide-card">
             <span class="slide-page-num">Slide 1 / 5</span>
-            <h3>🎯 專題名稱、使用對象與想解決的問題</h3>
+            <h3>🎯 1. 專題名稱、使用對象與想解決的問題</h3>
             <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
-              <li><strong>專題 / 機器人名稱：</strong>大學生報告主題發想_搜集機器人（IdeaCatcher Bot）</li>
-              <li><strong>使用對象：</strong>大專院校學生、常需進行分組報告與期末論文的同學。</li>
-              <li><strong>解決痛點：</strong>日常生活冒出絕佳報告點子但常「飛掉」，隨手記在備忘錄又雜亂散落。</li>
-              <li><strong>解決策略：</strong>在最熟悉的 LINE 中，透過自然指令即時捕捉、智慧歸類，並能隨時產出完整報告大綱！</li>
+              <li><strong>專題 / 機器人名稱：</strong>大學生報告主題發想_搜集機器人（IdeaCatcher Bot v2.0）</li>
+              <li><strong>使用對象：</strong>大專院校學生、常需進行通識報告、專題研究或跨組協作之期末受難同學。</li>
+              <li><strong>解決痛點：</strong>日常生活冒出絕佳報告點子但常「飛掉」，隨手筆記零散無序，期末選題毫無頭緒。</li>
+              <li><strong>解決策略：</strong>在最熟悉的 LINE 中，一句話即時捕捉、智慧領域歸類，並能隨時動態產出具學術深度之報告大綱！</li>
             </ul>
           </div>
 
           <!-- Slide 2 -->
           <div class="slide-card">
             <span class="slide-page-num">Slide 2 / 5</span>
-            <h3>⚙️ 核心功能與對話範例 (v2.0 改善完成版)</h3>
+            <h3>⚙️ 2. 核心功能與對話範例 (v2.0 改善完成版)</h3>
             <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
-              <li><strong>核心功能：</strong>點子即時記錄、智慧學科推測、領域搜尋調閱與<strong>一鍵生成 Markdown 報告大綱草稿</strong>。</li>
-              <li><strong>對話範例 1（🌟 核心改善：一鍵生成大綱）：</strong>輸入「大綱：1」👉 自動輸出研究背景、核心問題與效益，並實體產生 Markdown 檔案。</li>
-              <li><strong>對話範例 2（智慧自動歸類）：</strong>輸入「靈感：AI 在醫療應用」👉 自動標記【資訊科技】並回覆確認。</li>
-              <li><strong>對話範例 3（異常防呆提示）：</strong>輸入「大綱：99」👉 提示有效編號範圍，避免系統錯誤。</li>
+              <li><strong>核心功能：</strong>靈感即時記錄、智慧學科領域推測、分類檢索調閱與<strong>一鍵動態客製化報告大綱草稿</strong>。</li>
+              <li><strong>對話範例 1（🌟 核心改善：一鍵生成客製大綱）：</strong>輸入「大綱：1」👉 動態輸出研究背景、核心問題與效益，並實體匯出 Markdown 檔案。</li>
+              <li><strong>對話範例 2（智慧自動分類）：</strong>輸入「靈感：體罰是否必要？世代教育觀念探討」👉 自動標記【人文教育】並回覆確認。</li>
+              <li><strong>對話範例 3（異常防呆提示）：</strong>輸入「大綱：99」👉 提示有效編號範圍，保護系統避免崩潰。</li>
             </ul>
           </div>
 
           <!-- Slide 3 -->
           <div class="slide-card">
             <span class="slide-page-num">Slide 3 / 5</span>
-            <h3>🧪 實際操作與測試結果 (實測證明)</h3>
+            <h3>🧪 3. 實際操作與測試結果 (實測證明)</h3>
             <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
-              <li><strong>測試 1 (一鍵生成大綱)：</strong>輸入「大綱：1」👉 成功輸出三段式結構並匯出實體檔案（PASS ✅）</li>
+              <li><strong>測試 1 (動態大綱生成)：</strong>輸入「大綱：1」👉 成功輸出專屬三段式結構並匯出實體檔案（PASS ✅）</li>
               <li><strong>測試 2 (大綱越界防呆)：</strong>輸入「大綱：99」👉 正確提示有效範圍，避免崩潰（PASS ✅）</li>
-              <li><strong>測試 3 (自動分類)：</strong>輸入「靈感：生成式 AI 在程式教學」👉 成功自動分類為資訊科技（PASS ✅）</li>
-              <li><strong>測試 4 (領域搜尋)：</strong>輸入「查看：資訊科技」👉 精準篩選出對應主題（PASS ✅）</li>
-              <li><strong>實測截圖狀態：</strong>【待補：待使用者依修正後版本完成親自實測後，截圖置入於此】</li>
+              <li><strong>測試 3 (自動分類)：</strong>輸入「靈感：大學生報告主題發想_搜集機器人」👉 成功自動分類為資訊科技（PASS ✅）</li>
+              <li><strong>測試 4 (多學門識別)：</strong>輸入「靈感：體罰是否必要？世代觀念」👉 成功自動識別為人文教育（PASS ✅）</li>
+              <li><strong>自動化測試腳本：</strong>本機執行 <code>python3 -m unittest test_bot.py</code> ➔ 5 項測試全數通過（PASS ✅）</li>
             </ul>
           </div>
 
           <!-- Slide 4 -->
           <div class="slide-card">
             <span class="slide-page-num">Slide 4 / 5</span>
-            <h3>🤖 AI 如何協助，以及我如何檢查或修正</h3>
+            <h3>🤖 4. AI 如何協助，以及你如何檢查或修正</h3>
             <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
-              <li><strong>AI 工具與分工：</strong>使用 Antigravity Agent 協同架構程式碼、正規表達式與單元測試。</li>
-              <li><strong>真實檢查與修正 1（修正 Git 架構）：</strong>AI 初版嘗試推外層，我即時拒絕並指示「GIPINIT這個新的資料夾」，促成獨立資料夾管理。</li>
-              <li><strong>真實檢查與修正 2（調整改善目標）：</strong>AI 曾列出雲端 Webhook 等複雜項目，我及時修正聚焦在「一鍵生成報告大綱」的具體功能實作。</li>
-              <li><strong>真實檢查與修正 3（堅持真實杜絕編造）：</strong>我要求 AI「內容有缺漏請不要自行編造」，落實真實資料填寫。</li>
+              <li><strong>AI 工具與協作面向：</strong>使用 Antigravity Agent 協同架構程式碼、正規表達式、單元測試與網頁建置。</li>
+              <li><strong>真實檢查與修正 1（糾正大綱千篇一律與智慧辨識失敗）：</strong>實測發現大綱骨架公版死板，且「大學生」誤觸教育分支。要求 AI 全面擴充 6 大學院詞庫，並將大綱重構為依所屬領域深度動態客製化。</li>
+              <li><strong>真實檢查與修正 2（修正 Git 架構）：</strong>AI 初版嘗試推外層全域，我即時拒絕並指示「GIPINIT這個新的資料夾」，促成獨立乾淨管理。</li>
+              <li><strong>真實檢查與修正 3（聚焦實用改善）：</strong>AI 曾列出雲端 Webhook 等複雜項目，我及時修正聚焦在「一鍵生成報告大綱」的具體功能實作。</li>
+              <li><strong>真實檢查與修正 4（堅持真實杜絕編造）：</strong>我要求 AI「內容有缺漏請不要自行編造」，落實真實資料填寫。</li>
             </ul>
           </div>
 
           <!-- Slide 5 -->
           <div class="slide-card">
             <span class="slide-page-num">Slide 5 / 5</span>
-            <h3>🌟 心得、限制與成果連結</h3>
+            <h3>🌟 5. 心得、限制與下一步 (總結)</h3>
             <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
               <li><strong>學習心得（真實反思）：</strong>
                 「我覺得用 Antigravity 寫程式真的可以學到很多新東西。像我之前較多是用 Gemini 的 Canvas 功能來寫，但他並不能幫我在本機內設計好程式，也不能直接連結到網路上、上傳 GitHub，也不太能具體和我解釋他到底修改了哪些地方。但現在在操作 Antigravity 的過程中，只要有不懂的都可以詢問他為何這樣改，他也會解釋得非常淺顯易懂。更厲害的是可以自動幫我操作電腦，git 存檔、上傳 GitHub，甚至是自己完成程式測試與紀錄。真的非常厲害。」
               </li>
-              <li><strong>成果連結資訊：</strong>
-                <ul>
-                  <li>GitHub 專案連結：<code>https://github.com/juku1128/idea-bot</code></li>
-                  <li>開發紀錄網頁連結：<code>https://juku1128.github.io/idea-bot/</code></li>
-                </ul>
+              <li><strong>現行作品限制：</strong>
+                目前以本機 Python CLI 與 Web 前端模擬器呈現，尚未申請 LINE 企業付費 Webhook 伺服器；大綱由領域語意規則動態客製生成，尚未即時聯網爬取最新期刊文獻。
+              </li>
+              <li><strong>下一步規劃 (Next Steps)：</strong>
+                串接 Google Scholar / arXiv API 自動推薦 3 篇真實權威期刊參考文獻；支援一鍵匯出為 16:9 投影片檔 (.pptx) 與 Word 論文草稿；串接雲端資料庫支援跨裝置無縫同步。
               </li>
             </ul>
           </div>

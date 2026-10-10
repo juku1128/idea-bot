@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>成果簡報 (橫式 5 頁) | 大學生報告主題發想_搜集機器人</title>
+  <style>
+    :root {
+      --primary: #06c755;
+      --primary-dark: #05963f;
+      --primary-gradient: linear-gradient(135deg, #06c755 0%, #0284c7 100%);
+      --accent: #6366f1;
+      --dark: #0f172a;
+      --slate: #334155;
+      --light-slate: #64748b;
+      --bg: #0b0f19;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --slide-ratio: 16 / 9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background-color: var(--bg);
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* 頂部控制列 (螢幕檢視時可見，列印時隱藏) */
+    header.control-bar {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .brand-badge {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: none;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-print {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(6, 199, 85, 0.3);
+    }
+    .btn-print:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-nav {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+    .btn-nav:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-link {
+      background: transparent;
+      color: #94a3b8;
+    }
+    .btn-link:hover {
+      color: #fff;
+    }
+
+    .slide-indicator {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #94a3b8;
+      min-width: 60px;
+      text-align: center;
+    }
+
+    /* 主舞台區 */
+    main.stage {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    /* 單張 16:9 橫式投影片容器 */
+    .slide-wrapper {
+      width: 100%;
+      max-width: 1120px;
+      aspect-ratio: var(--slide-ratio);
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.99); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* 投影片內部版面配置 */
+    .slide-header {
+      padding: 28px 40px 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid #f1f5f9;
+      position: relative;
+    }
+
+    .slide-header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: var(--primary-gradient);
+    }
+
+    .slide-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .slide-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+    }
+
+    .slide-page-badge {
+      background: #f1f5f9;
+      color: var(--light-slate);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .slide-body {
+      flex: 1;
+      padding: 24px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+      overflow: hidden;
+    }
+
+    .slide-footer {
+      padding: 12px 40px;
+      background: #f8fafc;
+      border-top: 1px solid #f1f5f9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--light-slate);
+    }
+
+    /* 投影片 1 特製佈局 */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 24px;
+      height: 100%;
+      align-items: stretch;
+    }
+
+    .hero-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-card.highlight {
+      background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+      border-color: #a7f3d0;
+    }
+
+    .card-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #05963f;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .problem-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .problem-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--slate);
+      line-height: 1.45;
+    }
+
+    .item-icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* 投影片 2 特製佈局 (功能與對話) */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 20px;
+      height: 100%;
+    }
+
+    .feature-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .feature-item {
+      padding: 10px 14px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+    }
+    .feature-item.primary {
+      border-left-color: var(--primary);
+      background: #f0fdf4;
+    }
+
+    .feature-item strong {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--dark);
+      margin-bottom: 3px;
+    }
+    .feature-item p {
+      font-size: 0.82rem;
+      color: var(--light-slate);
+      line-height: 1.35;
+    }
+
+    .chat-preview-box {
+      background: #7395ae;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .chat-bubble {
+      max-width: 88%;
+      padding: 9px 13px;
+      border-radius: 12px;
+      font-size: 0.84rem;
+      line-height: 1.45;
+      white-space: pre-line;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    }
+    .bubble-user {
+      align-self: flex-end;
+      background: #5ac463;
+      color: #fff;
+      border-bottom-right-radius: 2px;
+      font-weight: 600;
+    }
+    .bubble-bot {
+      align-self: flex-start;
+      background: #ffffff;
+      color: #1e293b;
+      border-bottom-left-radius: 2px;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* 投影片 3 特製佈局 (表格實測) */
+    .table-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    table.slide-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    table.slide-table th {
+      background: #f1f5f9;
+      color: var(--slate);
+      font-weight: 700;
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 2px solid #cbd5e1;
+    }
+
+    table.slide-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #e2e8f0;
+      color: var(--slate);
+      vertical-align: middle;
+      line-height: 1.35;
+    }
+
+    table.slide-table tr:hover td {
+      background: #f8fafc;
+    }
+
+    .badge-pass {
+      display: inline-block;
+      background: #dcfce7;
+      color: #166534;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+    }
+
+    .test-summary-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 0.88rem;
+      color: #065f46;
+      font-weight: 600;
+    }
+
+    /* 投影片 4 特製佈局 (AI 協助與檢查修正) */
+    .ai-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      height: 100%;
+    }
+
+    .experience-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .experience-card.highlight {
+      border-left-color: #ef4444;
+      background: #fff5f5;
+    }
+
+    .experience-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .experience-desc {
+      font-size: 0.82rem;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+
+    /* 投影片 5 特製佈局 (心得、限制、下一步) */
+    .three-box-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr;
+      gap: 16px;
+      height: 100%;
+    }
+
+    .box-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .box-card.quote {
+      background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+      border-color: #86efac;
+    }
+
+    .box-header {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .quote-content {
+      font-size: 0.84rem;
+      color: #14532d;
+      line-height: 1.5;
+      font-style: italic;
+      position: relative;
+    }
+
+    .box-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--slate);
+      line-height: 1.35;
+    }
+
+    .box-list li {
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .box-list li::before {
+      content: "•";
+      position: absolute;
+      left: 2px;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* 列印特定樣式 (直接匯出標準 16:9 橫式 5 頁 PDF) */
+    @page {
+      size: landscape;
+      margin: 0;
+    }
+
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      header.control-bar, .no-print {
+        display: none !important;
+      }
+
+      main.stage {
+        padding: 0 !important;
+        margin: 0 !important;
+        display: block !important;
+      }
+
+      .slide-wrapper {
+        display: flex !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: none !important;
+        aspect-ratio: auto !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        page-break-after: always !important;
+        page-break-inside: avoid !important;
+        box-sizing: border-box;
+      }
+
+      /* 避免最後一張投影片產生空白頁 */
+      .slide-wrapper:last-child {
+        page-break-after: avoid !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 頂部導航與操作列 (列印時自動隱藏) -->
+  <header class="control-bar no-print">
+    <div class="brand-title">
+      <span class="brand-badge">成果簡報 (16:9 橫式)</span>
+      <span>大學生報告主題發想_搜集機器人</span>
+    </div>
+
+    <div class="nav-controls">
+      <button class="btn btn-nav" onclick="prevSlide()" title="上一頁 (←)">◀ 上一頁</button>
+      <span class="slide-indicator" id="slideIndicator">1 / 5</span>
+      <button class="btn btn-nav" onclick="nextSlide()" title="下一頁 (→)">下一頁 ▶</button>
+      <button class="btn btn-nav" onclick="toggleAllSlides()" id="viewModeBtn">📑 檢視全覽</button>
+      <button class="btn btn-print" onclick="window.print()">🖨️ 匯出橫式簡報 PDF</button>
+      <a href="index.html" class="btn btn-link">← 返回開發紀錄網頁</a>
+    </div>
+  </header>
+
+  <!-- 主放映區 -->
+  <main class="stage" id="stageArea">
+
+    <!-- Slide 1: 專題名稱、使用對象與想解決的問題 -->
+    <section class="slide-wrapper" id="slide-1">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">重點 1 · 專案起源與定位</span>
+          <h1 class="slide-title">專題名稱、使用對象與想解決的問題</h1>
+        </div>
+        <span class="slide-page-badge">Slide 1 / 5</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="hero-grid">
+          
+          <!-- 左欄：基本資訊與使用對象 -->
+          <div class="hero-card">
+            <div>
+              <div class="card-label">🎯 專題定位與使用者客群</div>
+              <h2 style="font-size: 1.3rem; margin-bottom: 8px; color: var(--dark);">大學生報告主題發想_搜集機器人</h2>
+              <p style="font-size: 0.9rem; color: var(--light-slate); margin-bottom: 16px;">
+                英文名稱：<strong>IdeaCatcher Bot (v2.0 改善完成版)</strong>
+              </p>
+              
+              <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-bottom: 12px;">
+                <strong style="font-size: 0.88rem; color: var(--slate); display: block; margin-bottom: 4px;">👥 目標使用對象：</strong>
+                <p style="font-size: 0.86rem; color: var(--slate); line-height: 1.45;">
+                  大專院校在學學生、常需進行通識報告、專題研究或跨組協作之期末受難同學。
+                </p>
+              </div>
+            </div>
+
+            <div style="font-size: 0.82rem; color: var(--light-slate);">
+              💡 核心訴求：把每個人在生活中冒出的「靈光一閃」，直接轉化為具有學術架構的成果。
+            </div>
+          </div>
+
+          <!-- 右欄：想解決的痛點與解決方案 -->
+          <div class="hero-card highlight">
+            <div>
+              <div class="card-label">⚡ 想解決的核心痛點</div>
+              <ul class="problem-list">
+                <li class="problem-item">
+                  <span class="item-icon">💨</span>
+                  <div>
+                    <strong>靈感稍縱即逝</strong><br>
+                    搭車、洗澡、滑社群時常冒出絕佳題目，但沒即時工具記錄，常常「點子全飛掉」。
+                  </div>
+                </li>
+                <li class="problem-item">
+                  <span class="item-icon">📂</span>
+                  <div>
+                    <strong>隨手筆記零散混亂</strong><br>
+                    記在手機備忘錄或聊天室草稿，沒有分類架構，期末需要時宛如大海撈針。
+                  </div>
+                </li>
+                <li class="problem-item">
+                  <span class="item-icon">📝</span>
+                  <div>
+                    <strong>有題目卻卡在立大綱</strong><br>
+                    有了想法卻不知如何開頭撰寫背景、三大探討面向與結論，往往拖延到期末最後一刻。
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div style="background: rgba(6, 199, 85, 0.15); border: 1px solid rgba(6, 199, 85, 0.3); border-radius: 8px; padding: 10px 14px; font-size: 0.85rem; color: #065f46; font-weight: 600;">
+              ✨ 核心解方：LINE 隨手一句話記錄 + 智慧分類 + <strong>一鍵生成 Markdown 深度報告大綱草稿</strong>！
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>IdeaCatcher Bot v2.0 成果簡報</span>
+        <span>開源倉庫：github.com/juku1128/idea-bot</span>
+      </div>
+    </section>
+
+    <!-- Slide 2: 核心功能與對話範例 -->
+    <section class="slide-wrapper" id="slide-2" style="display: none;">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">重點 2 · 核心功能與互動設計</span>
+          <h1 class="slide-title">核心功能與對話範例 (v2.0 課後改善完成版)</h1>
+        </div>
+        <span class="slide-page-badge">Slide 2 / 5</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="two-col">
+          
+          <!-- 左欄：功能模組簡介 -->
+          <div class="feature-box">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--slate);">🛠️ 核心改善功能模組</div>
+            
+            <div class="feature-item primary">
+              <strong>🌟 1. 一鍵生成客製化大綱 (大綱：[編號])</strong>
+              <p>依主題動態產出三段式學術報告結構，並在目錄同步實體匯出 Markdown 檔案！</p>
+            </div>
+
+            <div class="feature-item">
+              <strong>⚡ 2. 智慧學科自動識別領域</strong>
+              <p>內建 6 大學術關鍵字特徵庫（資訊、教育、心理、商管等），無需手動標籤。</p>
+            </div>
+
+            <div class="feature-item">
+              <strong>🔍 3. 領域檢索與單筆彈性管理</strong>
+              <p>支援「查看：資訊科技」篩選調閱，以及「刪除：1」安全刪除與動態重排。</p>
+            </div>
+
+            <div class="feature-item">
+              <strong>🛡️ 4. 邊界檢查與異常防呆</strong>
+              <p>大綱與刪除指令具備編號越界檢查（如大綱：99），確保系統穩定不崩潰。</p>
+            </div>
+          </div>
+
+          <!-- 右欄：真實對話範例 -->
+          <div class="chat-preview-box">
+            <div style="font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.9); margin-bottom: 2px;">
+              💬 LINE Bot 真實對話流程範例
+            </div>
+
+            <div class="chat-bubble bubble-user">靈感：體罰是否必要？z世代與嬰兒潮世代對於教育方式觀念之差異探討</div>
+            <div class="chat-bubble bubble-bot">✅ 已為您成功記錄報告靈感！
+📌 主題：體罰是否必要？z世代與嬰兒潮世代對於教育方式觀念之差異探討
+🏷️ 分類：人文教育（✨ 智慧識別領域：人文教育）
+🔢 目前編號：第 1 筆</div>
+
+            <div class="chat-bubble bubble-user">大綱：1</div>
+            <div class="chat-bubble bubble-bot" style="font-size: 0.78rem; line-height: 1.35;">📝 已為您成功生成【體罰是否必要？z世代與嬰兒潮世代...】的專屬報告大綱草稿！
+🏷️ 領域分類：人文教育
+一、研究背景與動機：從時代變遷與人權價值演進，探討不同世代間教育哲學衝突...
+二、主要探討核心面向：
+    1. 新舊世代教養思維與文化歷史背景差異分析
+    2. 管教手段對學生心理健康與同儕適應影響
+    3. 現代學校正向輔導管教替代機制推動困境
+三、預期研究效益：建立跨世代親師溝通橋樑並提出具體輔導指引。
+💾 已同步在資料夾中匯出為：報告大綱_1_體罰是否必要？z世代與嬰兒潮世代對於教育.md</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>已杜絕千篇一律的固定模板，深度針對不同學科動態產出針對性大綱</span>
+        <span>LINE Bot 模擬器實測無誤</span>
+      </div>
+    </section>
+
+    <!-- Slide 3: 實際操作與測試結果 -->
+    <section class="slide-wrapper" id="slide-3" style="display: none;">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">重點 3 · 實測證明與品質驗證</span>
+          <h1 class="slide-title">實際操作與測試結果 (實測證明)</h1>
+        </div>
+        <span class="slide-page-badge">Slide 3 / 5</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="table-container">
+          
+          <table class="slide-table">
+            <thead>
+              <tr>
+                <th style="width: 18%;">測試情境項目</th>
+                <th style="width: 25%;">測試操作指令</th>
+                <th style="width: 27%;">系統預期行為</th>
+                <th style="width: 20%;">實際執行結果</th>
+                <th style="width: 10%;">判定</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>核心 1：動態大綱生成</strong></td>
+                <td><code>大綱：1</code></td>
+                <td>依主題領域動態產出專屬大綱，並實體匯出 <code>.md</code> 檔案</td>
+                <td>成功生成資訊科技專屬三段大綱，並實體產檔</td>
+                <td><span class="badge-pass">PASS ✅</span></td>
+              </tr>
+              <tr>
+                <td><strong>核心 2：編號越界防呆</strong></td>
+                <td><code>大綱：99</code></td>
+                <td>阻斷無效編號，提示有效範圍 1~2，系統不中斷</td>
+                <td>友善回覆有效範圍，資料庫維持完整無損</td>
+                <td><span class="badge-pass">PASS ✅</span></td>
+              </tr>
+              <tr>
+                <td><strong>改善 3：智慧學科分類</strong></td>
+                <td><code>靈感：大學生報告主題發想_搜集機器人</code></td>
+                <td>命中「機器人」特徵，自動標記為【資訊科技】</td>
+                <td>成功識別為【資訊科技】並回傳卡片</td>
+                <td><span class="badge-pass">PASS ✅</span></td>
+              </tr>
+              <tr>
+                <td><strong>改善 4：多學門自動辨識</strong></td>
+                <td><code>靈感：體罰是否必要？世代教育觀念</code></td>
+                <td>命中「體罰/世代」，自動標記為【人文教育】</td>
+                <td>成功識別為【人文教育】並回傳卡片</td>
+                <td><span class="badge-pass">PASS ✅</span></td>
+              </tr>
+              <tr>
+                <td><strong>改善 5：單筆刪除重排</strong></td>
+                <td><code>刪除：1</code></td>
+                <td>移除指定點子，後續編號動態向前遞補重排</td>
+                <td>成功刪除該筆資料，剩餘索引更新無誤</td>
+                <td><span class="badge-pass">PASS ✅</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="test-summary-bar">
+            <span>🧪 本機自動化單元測試：執行 <code>python3 -m unittest test_bot.py</code> ➔ 5 項測試全數通過 (Ran 5 tests in 0.001s, OK)</span>
+            <span style="color: #05963f;">100% 驗證完成</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>實測資料庫已驗證邊界安全與多情境容錯</span>
+        <span>完整測試腳本收錄於 test_bot.py</span>
+      </div>
+    </section>
+
+    <!-- Slide 4: AI 如何協助，以及你如何檢查或修正 -->
+    <section class="slide-wrapper" id="slide-4" style="display: none;">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">重點 4 · 人機協同真實經驗</span>
+          <h1 class="slide-title">AI 如何協助，以及我如何檢查與修正</h1>
+        </div>
+        <span class="slide-page-badge">Slide 4 / 5</span>
+      </div>
+
+      <div class="slide-body">
+        <div style="font-size: 0.86rem; color: var(--light-slate); margin-bottom: 4px;">
+          🤖 <strong>使用工具：</strong>Antigravity Agent (Google DeepMind) ｜ <strong>協助範疇：</strong>核心模組架構、正規表達式解析、測試腳本與網頁建置。
+        </div>
+
+        <div class="ai-grid">
+          
+          <!-- 經驗 1: 修正大綱千篇一律與智慧識別 -->
+          <div class="experience-card highlight">
+            <div class="experience-title">
+              <span>🚨 真實修正 1：糾正大綱千篇一律與智慧識別失敗</span>
+              <span style="font-size: 0.72rem; color: #dc2626; font-weight: bold;">[核心除錯]</span>
+            </div>
+            <p class="experience-desc">
+              <strong>發現問題：</strong>實測「機器人」與「體罰世代」時，AI 最初產出的兩份大綱骨架完全一模一樣（公版三點式），且智慧系統未能正確推斷類別。<br>
+              <strong>主動修正：</strong>及時抓出詞庫缺少「機器人」且「學生」字樣干擾判斷。要求 AI 重構大綱引擎，依領域產出深度客製化研究面向，徹底擺脫死板樣板！
+            </p>
+          </div>
+
+          <!-- 經驗 2: 修正 Git 架構 -->
+          <div class="experience-card">
+            <div class="experience-title">
+              <span>📁 真實修正 2：掌控目錄獨立性與 Git 初始化</span>
+              <span style="font-size: 0.72rem; color: var(--accent); font-weight: bold;">[架構掌控]</span>
+            </div>
+            <p class="experience-desc">
+              <strong>發現問題：</strong>AI 初期嘗試在外層全域直接 git add，觸發 macOS 沙盒權限提示，容易造成舊專案混雜。<br>
+              <strong>主動修正：</strong>我明確按下拒絕並指示「GIPINIT這個新的資料夾」，促使 AI 在「嘻嘻」獨立目錄建立全新乾淨 Git 倉庫，並加上 .gitignore 嚴格隔離。
+            </p>
+          </div>
+
+          <!-- 經驗 3: 精準聚焦改善項目 -->
+          <div class="experience-card">
+            <div class="experience-title">
+              <span>🎯 真實修正 3：拒絕過度規劃，鎖定實用改版</span>
+              <span style="font-size: 0.72rem; color: var(--primary); font-weight: bold;">[需求定錨]</span>
+            </div>
+            <p class="experience-desc">
+              <strong>發現問題：</strong>AI 先前曾自行列出「串接 LINE Messaging API 雲端 Webhook 伺服器」等複雜未來願景。<br>
+              <strong>主動修正：</strong>我明確告知該項目未討論且難度過高，作業應交付改版完成品，引導 AI 聚焦在最具實質效益的「一鍵生成 Markdown 報告大綱草稿」。
+            </p>
+          </div>
+
+          <!-- 經驗 4: 堅持真實性原則 -->
+          <div class="experience-card">
+            <div class="experience-title">
+              <span>⚖️ 真實修正 4：嚴格落實求真，杜絕不實編造</span>
+              <span style="font-size: 0.72rem; color: #d97706; font-weight: bold;">[求真精神]</span>
+            </div>
+            <p class="experience-desc">
+              <strong>主動指示：</strong>我特別要求 AI「內容有缺漏請不要自行編造，請詢問我讓我補上」。<br>
+              <strong>落實成果：</strong>AI 主動向我索取實際體驗與反思，個人姓名學號依隱私不公開原則處理，所有實測數據均經過實際執行驗證，絕不造假。
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>由人主導專案方向與品質把關，AI 作為強大執行槓桿與架構助手</span>
+        <span>符合作業獨立思辨與自主除錯要求</span>
+      </div>
+    </section>
+
+    <!-- Slide 5: 心得、限制與下一步 -->
+    <section class="slide-wrapper" id="slide-5" style="display: none;">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">重點 5 · 學習反思與未來演進</span>
+          <h1 class="slide-title">心得、限制與下一步 (v2.0 總結)</h1>
+        </div>
+        <span class="slide-page-badge">Slide 5 / 5</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="three-box-grid">
+          
+          <!-- 區塊 A：真實學習心得 -->
+          <div class="box-card quote">
+            <div class="box-header">💡 真實學習心得</div>
+            <div class="quote-content">
+              「我覺得用 Antigravity 寫程式真的可以學到很多新東西。像我之前較多是用 Gemini 的 Canvas 功能來寫，但他並不能幫我在本機內設計好程式，也不能直接連結到網路上、上傳 GitHub，也不太能具體和我解釋他到底修改了哪些地方。<br><br>
+              但現在在操作 Antigravity 的過程中，只要有不懂的都可以詢問他為何這樣改，他也會解釋得非常淺顯易懂。更厲害的是可以自動幫我操作電腦，git 存檔、上傳 GitHub，甚至是自己完成程式測試與紀錄。真的非常厲害。」
+            </div>
+          </div>
+
+          <!-- 區塊 B：現行作品限制 -->
+          <div class="box-card">
+            <div class="box-header">⚠️ 現行限制 (Current Limits)</div>
+            <ul class="box-list">
+              <li><strong>通訊串接層次：</strong>目前以本機 Python CLI 與 Web 前端模擬器呈現，尚未向 LINE 官方申請付費企業 Webhook 伺服器部署。</li>
+              <li><strong>單機資料庫：</strong>目前點子以本地 JSON 儲存，尚未串接雲端關聯式資料庫，跨裝置使用需依賴網頁端。</li>
+              <li><strong>大綱知識庫來源：</strong>大綱由領域語意規則動態客製生成，目前尚未即時爬取當年度最新學術文獻期刊。</li>
+            </ul>
+          </div>
+
+          <!-- 區塊 C：下一步規劃 -->
+          <div class="box-card">
+            <div class="box-header">🚀 下一步 (Next Steps)</div>
+            <ul class="box-list">
+              <li><strong>學術文獻 API 串接：</strong>整合 arXiv / Google Scholar API，產出大綱時自動附上 3 篇真實權威期刊參考資料。</li>
+              <li><strong>多格式一鍵匯出：</strong>支援一鍵轉換為 16:9 簡報投影片檔 (.pptx) 與 Word (.docx) 期末小論文草稿。</li>
+              <li><strong>Supabase 雲端多端同步：</strong>手機 LINE 隨手傳，筆電網頁即時編修大綱，實現無縫跨裝置體驗。</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>專案倉庫：https://github.com/juku1128/idea-bot</span>
+        <span>GitHub Pages 成果展示：https://juku1128.github.io/idea-bot/</span>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 5;
+    let isAllView = false;
+
+    function showSlide(num) {
+      if (isAllView) return;
+      currentSlide = num;
+      if (currentSlide < 1) currentSlide = 1;
+      if (currentSlide > totalSlides) currentSlide = totalSlides;
+
+      for (let i = 1; i <= totalSlides; i++) {
+        const el = document.getElementById(`slide-${i}`);
+        if (el) {
+          el.style.display = (i === currentSlide) ? 'flex' : 'none';
+        }
+      }
+
+      document.getElementById('slideIndicator').innerText = `${currentSlide} / ${totalSlides}`;
+    }
+
+    function nextSlide() {
+      if (isAllView) return;
+      if (currentSlide < totalSlides) {
+        showSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (isAllView) return;
+      if (currentSlide > 1) {
+        showSlide(currentSlide - 1);
+      }
+    }
+
+    function toggleAllSlides() {
+      isAllView = !isAllView;
+      const stage = document.getElementById('stageArea');
+      const btn = document.getElementById('viewModeBtn');
+      const indicator = document.getElementById('slideIndicator');
+
+      if (isAllView) {
+        stage.style.flexDirection = 'column';
+        stage.style.gap = '32px';
+        stage.style.padding = '32px 24px';
+        for (let i = 1; i <= totalSlides; i++) {
+          const el = document.getElementById(`slide-${i}`);
+          if (el) el.style.display = 'flex';
+        }
+        btn.innerText = '🖥️ 單頁放映';
+        indicator.innerText = '全覽';
+      } else {
+        stage.style.flexDirection = 'row';
+        stage.style.gap = '0';
+        stage.style.padding = '24px';
+        btn.innerText = '📑 檢視全覽';
+        showSlide(currentSlide);
+      }
+    }
+
+    // 鍵盤左右箭頭導航
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key === 'Home') {
+        showSlide(1);
+      } else if (e.key === 'End') {
+        showSlide(totalSlides);
+      }
+    });
+
+    // 列印前強制將所有投影片顯示，以利匯出 5 頁完整 PDF
+    window.addEventListener('beforeprint', () => {
+      for (let i = 1; i <= totalSlides; i++) {
+        const el = document.getElementById(`slide-${i}`);
+        if (el) el.style.display = 'flex';
+      }
+    });
+
+    // 列印完成後恢復原先檢視模式
+    window.addEventListener('afterprint', () => {
+      if (!isAllView) {
+        showSlide(currentSlide);
+      }
+    });
+
+    // 初始化
+    showSlide(1);
+  </script>
+</body>
+</html>
