@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>專題計畫與開發紀錄 - 大學生報告主題發想_搜集機器人</title>
+  <title>專題開發紀錄網頁與成果簡報 - 大學生報告主題發想_搜集機器人 (v2.0 改善版)</title>
   <style>
     :root {
       --primary: #06C755; /* LINE Green */
@@ -41,7 +41,7 @@
     }
 
     .nav-container {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
       padding: 16px 24px;
       display: flex;
@@ -58,8 +58,8 @@
     }
 
     .brand-icon {
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       background: var(--primary);
       border-radius: 10px;
       display: flex;
@@ -67,7 +67,7 @@
       justify-content: center;
       color: white;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 22px;
     }
 
     .brand-title h1 {
@@ -119,9 +119,9 @@
       background: #f1f5f9;
     }
 
-    /* 主要容器版面 (Grid) */
+    /* 頁面主要容器 (Grid) */
     .container {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 28px auto;
       padding: 0 24px;
       display: grid;
@@ -130,7 +130,7 @@
       align-items: start;
     }
 
-    @media (max-width: 992px) {
+    @media (max-width: 1024px) {
       .container {
         grid-template-columns: 1fr;
       }
@@ -164,6 +164,15 @@
       font-weight: bold;
     }
 
+    .section-badge-purple {
+      background: #f3e8ff;
+      color: #7e22ce;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
     .section-header h2 {
       font-size: 1.25rem;
       font-weight: 700;
@@ -174,7 +183,8 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
+      font-size: 0.95rem;
     }
 
     .info-item strong {
@@ -183,21 +193,21 @@
       margin-right: 6px;
     }
 
-    /* 測試表格 */
-    .test-table {
+    /* 比較與測試表格 */
+    .data-table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 14px;
       font-size: 0.92rem;
     }
 
-    .test-table th, .test-table td {
+    .data-table th, .data-table td {
       border: 1px solid var(--border);
       padding: 12px 14px;
       text-align: left;
     }
 
-    .test-table th {
+    .data-table th {
       background: #f8fafc;
       font-weight: 600;
       color: #334155;
@@ -213,6 +223,24 @@
       display: inline-block;
     }
 
+    .badge-v1 {
+      background: #e2e8f0;
+      color: #475569;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+
+    .badge-v2 {
+      background: #dcfce7;
+      color: #166534;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+
     .code-snippet {
       background: #f1f5f9;
       padding: 2px 6px;
@@ -220,6 +248,62 @@
       font-family: monospace;
       color: #0f172a;
       font-size: 0.85rem;
+    }
+
+    .alert-box {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.92rem;
+      margin: 12px 0;
+    }
+
+    .alert-box-warning {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.92rem;
+      margin: 12px 0;
+    }
+
+    /* 成果簡報投影片模組 */
+    .slides-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .slide-card {
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      position: relative;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .slide-page-num {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: #f1f5f9;
+      color: #475569;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .slide-card h3 {
+      font-size: 1.15rem;
+      color: #0f172a;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     /* LINE 模擬器側邊欄 */
@@ -242,7 +326,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      height: 600px;
+      height: 640px;
     }
 
     .chat-header {
@@ -255,14 +339,14 @@
     }
 
     .chat-bot-avatar {
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: var(--primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
+      font-size: 18px;
     }
 
     .chat-title {
@@ -272,7 +356,7 @@
 
     .chat-status {
       font-size: 0.75rem;
-      color: #94a3b8;
+      color: #4ade80;
     }
 
     .chat-messages {
@@ -313,11 +397,12 @@
 
     .quick-presets {
       background: #ffffff;
-      padding: 8px 12px;
+      padding: 8px 10px;
       border-top: 1px solid #cbd5e1;
       display: flex;
       gap: 6px;
       overflow-x: auto;
+      scrollbar-width: thin;
     }
 
     .preset-btn {
@@ -326,8 +411,8 @@
       border: 1px solid #cbd5e1;
       color: #334155;
       border-radius: 14px;
-      font-size: 0.75rem;
-      padding: 4px 10px;
+      font-size: 0.72rem;
+      padding: 4px 8px;
       cursor: pointer;
       transition: background 0.2s;
     }
@@ -372,13 +457,13 @@
       background: var(--primary-dark);
     }
 
-    /* 列印特定樣式 (支援 PDF 輸出) */
+    /* 列印特定樣式 (支援一鍵匯出乾淨 PDF) */
     @media print {
       body {
         background: white;
         color: black;
       }
-      header, .nav-actions, .simulator-panel, .quick-presets, .chat-input-bar {
+      header, .nav-actions, .simulator-panel, .quick-presets, .chat-input-bar, .no-print {
         display: none !important;
       }
       .container {
@@ -390,7 +475,12 @@
         border: 1px solid #ccc;
         box-shadow: none;
         page-break-inside: avoid;
-        margin-bottom: 20px;
+        margin-bottom: 24px;
+      }
+      .slide-card {
+        page-break-before: always;
+        border: 1px solid #999;
+        min-height: 500px;
       }
     }
   </style>
@@ -403,13 +493,13 @@
       <div class="brand">
         <div class="brand-icon">💡</div>
         <div class="brand-title">
-          <h1>大學生報告主題發想_搜集機器人</h1>
-          <p>LINE Bot 專題開發紀錄網頁與實測證明（課堂第一版）</p>
+          <h1>大學生報告主題發想_搜集機器人 (v2.0 改善版)</h1>
+          <p>LINE Bot 專題開發紀錄網頁與成果簡報</p>
         </div>
       </div>
       <div class="nav-actions">
-        <button class="btn btn-outline" onclick="window.print()">🖨️ 匯出計畫/簡報 PDF</button>
-        <button class="btn btn-primary" onclick="resetSimulator()">🔄 重置測試資料</button>
+        <button class="btn btn-primary" onclick="window.print()">🖨️ 匯出成果簡報/計畫 PDF</button>
+        <button class="btn btn-outline" onclick="resetSimulator()">🔄 重置模擬器</button>
       </div>
     </div>
   </header>
@@ -417,176 +507,323 @@
   <!-- 主內容區 -->
   <div class="container">
     
-    <!-- 左側：專題計畫六大項目與實測報告 -->
+    <!-- 左側：專題開發紀錄與成果簡報 -->
     <main>
-      
-      <!-- 專題概覽卡片 -->
-      <section class="section-card">
+
+      <!-- 區塊 1：課後改善版重點與前後差異對照 -->
+      <section class="section-card" id="improvement">
         <div class="section-header">
-          <span class="section-badge">項目 1 & 2</span>
-          <h2>專題定位與使用者需求</h2>
+          <span class="section-badge-purple">改善版亮點</span>
+          <h2>課後作業改善版 (v2.0) 核心成果與前後差異</h2>
+        </div>
+        <p style="font-size: 0.95rem; margin-bottom: 12px;">
+          本版本以今日課堂第一版（Commit: <code>4dc5fe7</code>）為起點，選定<strong>「智慧學科自動分類、精準領域搜尋調閱與單筆靈感管理」</strong>進行深度改善，解決第一版點子過多難以查找、未打分類標籤即無法整理的痛點。
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 22%;">比較面向</th>
+              <th style="width: 32%;">課堂第一版 (v1.0)</th>
+              <th style="width: 32%;">課後改善版 (v2.0)</th>
+              <th style="width: 14%;">效益</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>學科分類處理</strong></td>
+              <td>未填寫「分類：」時，僅能死板標記為 <code>一般/未分類</code></td>
+              <td><strong>內建關鍵字特徵庫，智慧自動推測學科領域</strong>（如輸入「AI」自動標記為【資訊科技】）</td>
+              <td><span class="badge-v2">省時智慧</span></td>
+            </tr>
+            <tr>
+              <td><strong>靈感調閱機制</strong></td>
+              <td>只能輸入「查看靈感」一口氣列出全部，主題多時雜亂</td>
+              <td><strong>支援分類篩選與關鍵字搜尋</strong>（如 <code>查看：資訊科技</code>、<code>搜尋：心理</code>）</td>
+              <td><span class="badge-v2">精準檢索</span></td>
+            </tr>
+            <tr>
+              <td><strong>點子管理能力</strong></td>
+              <td>只能「清空靈感」全部刪除，無法單獨剔除</td>
+              <td><strong>支援指定編號刪除與動態重排</strong>（如 <code>刪除：1</code>）</td>
+              <td><span class="badge-v2">彈性管理</span></td>
+            </tr>
+            <tr>
+              <td><strong>邊界防呆機制</strong></td>
+              <td>僅防範空白字串</td>
+              <td><strong>增補編號越界檢查（如刪除99）與非數字型別防護</strong>，避免當機</td>
+              <td><span class="badge-v2">強健穩定</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 區塊 2：專題介紹 -->
+      <section class="section-card" id="intro">
+        <div class="section-header">
+          <span class="section-badge">一、專題介紹</span>
+          <h2>用途、使用對象與核心功能</h2>
         </div>
         <ul class="info-list">
           <li class="info-item">
-            <strong>1. 專題名稱：</strong>
-            <span>大學生報告主題發想_搜集機器人（代稱：IdeaCatcher Bot）</span>
+            <strong>專題名稱：</strong>大學生報告主題發想_搜集機器人（IdeaCatcher Bot）
           </li>
           <li class="info-item">
-            <strong>2. 使用對象：</strong>
-            <span>大專院校學生、需要經常做分組簡報或期末研究的同學。</span>
+            <strong>使用對象：</strong>大專院校學生、常需進行期末專題、分組討論或學期論文的同學。
           </li>
           <li class="info-item">
-            <strong>想解決的痛點：</strong>
-            <span>大學生日常在走廊、滑手機或睡前常會靈光一閃想到絕佳的報告主題，但缺乏便捷好用的分類記錄工具，靈感常常「飛掉」或遺忘。本 Bot 讓同學直接在最熟悉的 LINE 中隨時記錄並分類，方便隨時調閱。</span>
+            <strong>想解決的問題：</strong>大學生在日常通勤、走路、滑社群或睡前常靈光一閃冒出絕佳報告主題，但往往因為手邊沒專門工具或備忘錄散落，導致「點子常飛掉」。本 Bot 讓同學在最常用的 LINE 中即時隨手一句話記錄，並自動分類整理。
+          </li>
+          <li class="info-item">
+            <strong>核心功能：</strong>收到點子後即時記錄內容、進行智慧學科歸類，並提供隨時調閱、領域篩選與編號刪除管理。
           </li>
         </ul>
       </section>
 
-      <!-- 核心功能卡片 -->
-      <section class="section-card">
+      <!-- 區塊 3：操作示範（對話範例） -->
+      <section class="section-card" id="demo">
         <div class="section-header">
-          <span class="section-badge">項目 3</span>
-          <h2>核心功能說明</h2>
+          <span class="section-badge">二、操作示範</span>
+          <h2>對話範例（正常使用、搜尋與防呆提示）</h2>
         </div>
-        <p style="margin-bottom: 12px;"><strong>具體完成之一項核心功能：</strong></p>
-        <div style="background: #f8fafc; border-left: 4px solid var(--primary); padding: 14px 16px; border-radius: 0 8px 8px 0; font-size: 0.95rem;">
-          <strong>「點子即時記錄、學科分類解析與隨時調閱」</strong><br>
-          機器人收到文字後，以正規表達式自動擷取「靈感主題」與指定「分類領域」（未指定則自動標註未分類），存入主題庫中；使用者可輸入「查看靈感」即時調閱歷史主題清單。
-        </div>
-      </section>
 
-      <!-- 對話範例卡片 -->
-      <section class="section-card">
-        <div class="section-header">
-          <span class="section-badge">項目 4</span>
-          <h2>對話範例（正常 vs 輸入不完整）</h2>
-        </div>
-        
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
           <div style="background: #f8fafc; padding: 16px; border-radius: 10px; border: 1px solid var(--border);">
-            <h4 style="color: #15803d; margin-bottom: 8px;">✅ 正常使用情況</h4>
-            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 6px;">使用者輸入：</p>
-            <div class="code-snippet" style="display: block; margin-bottom: 8px;">靈感：社群媒體對大學生焦慮的影響 分類：社會心理</div>
-            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 6px;">Bot 回覆：</p>
+            <h4 style="color: #15803d; margin-bottom: 8px;">✅ 改善示範 1：智慧自動分類</h4>
+            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 4px;">使用者輸入：</p>
+            <div class="code-snippet" style="display: block; margin-bottom: 8px;">靈感：生成式 AI 在程式教學之成效評估</div>
+            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 4px;">Bot 回覆：</p>
             <div style="font-size: 0.85rem; background: white; padding: 8px; border-radius: 6px; border: 1px solid #e2e8f0;">
               ✅ 已為您成功記錄報告靈感！<br>
-              📌 主題：社群媒體對大學生焦慮的影響<br>
-              🏷️ 分類：社會心理<br>
-              💡 提示：隨時輸入「查看靈感」即可調閱清單。
+              📌 主題：生成式 AI 在程式教學之成效評估<br>
+              🏷️ 分類：資訊科技（✨ 智慧識別歸類）<br>
+              🔢 目前編號：第 1 筆<br>
+              💡 提示：輸入「搜尋：科技」可調閱特定領域。
             </div>
           </div>
 
-          <div style="background: #fff1f2; padding: 16px; border-radius: 10px; border: 1px solid #fecdd3;">
-            <h4 style="color: #be123c; margin-bottom: 8px;">⚠️ 輸入不完整情況</h4>
-            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 6px;">使用者輸入：</p>
-            <div class="code-snippet" style="display: block; margin-bottom: 8px;">靈感：</div>
-            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 6px;">Bot 回覆：</p>
-            <div style="font-size: 0.85rem; background: white; padding: 8px; border-radius: 6px; border: 1px solid #fecdd3;">
-              ⚠️ 請輸入要記錄的報告靈感主題喔！<br>
-              💡 正確格式範例：<br>
-              • 「靈感：智慧農業應用 分類：資工」<br>
-              • 或直接輸入「靈感：ESG 永續經營策略」
+          <div style="background: #f8fafc; padding: 16px; border-radius: 10px; border: 1px solid var(--border);">
+            <h4 style="color: #15803d; margin-bottom: 8px;">🔍 改善示範 2：領域篩選調閱</h4>
+            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 4px;">使用者輸入：</p>
+            <div class="code-snippet" style="display: block; margin-bottom: 8px;">查看：資訊科技</div>
+            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 4px;">Bot 回覆：</p>
+            <div style="font-size: 0.85rem; background: white; padding: 8px; border-radius: 6px; border: 1px solid #e2e8f0;">
+              🔍 「資訊科技」相關報告點子篩選結果（共 1 則）：<br>
+              1. [資訊科技] 生成式 AI 在程式教學之成效評估
             </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 14px; background: #fff1f2; padding: 16px; border-radius: 10px; border: 1px solid #fecdd3;">
+          <h4 style="color: #be123c; margin-bottom: 8px;">⚠️ 改善示範 3：越界刪除防呆提示</h4>
+          <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 4px;">使用者輸入：<span class="code-snippet">刪除：99</span></p>
+          <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 4px;">Bot 回覆：</p>
+          <div style="font-size: 0.85rem; background: white; padding: 8px; border-radius: 6px; border: 1px solid #fecdd3;">
+            ⚠️ 找不到編號 99 的報告點子！<br>
+            💡 目前有效編號範圍為 1 ~ 2（輸入「查看靈感」可確認最新編號）。
           </div>
         </div>
       </section>
 
-      <!-- AI 協助方式卡片 -->
-      <section class="section-card">
+      <!-- 區塊 4：開發過程 -->
+      <section class="section-card" id="process">
         <div class="section-header">
-          <span class="section-badge">項目 5</span>
-          <h2>AI 協助方式與分工</h2>
+          <span class="section-badge">三、開發過程</span>
+          <h2>計畫、開發、修正與測試紀錄</h2>
         </div>
-        <p style="margin-bottom: 12px; color: #475569;">在專題發想與製作過程中，請 AI 代理工具擔任以下工作：</p>
-        <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
-          <li><strong>寫程式 (Coding)：</strong>自動生成 Python 訊息處理器 (`bot.py`)，包含正規表達式與資料結構。</li>
-          <li><strong>除錯 (Debugging)：</strong>輔助建立邊界條件檢查、空白輸入防呆與自動化測試腳本 (`test_bot.py`)。</li>
-          <li><strong>簡報與計畫撰寫：</strong>結構化歸納整理專題六大必填項目，符合半頁到一頁標準規格。</li>
-          <li><strong>網頁實作 (Web UI)：</strong>建立現代化的開發紀錄網頁與互動式模擬對話介面。</li>
-          <li><strong>即時解說原理：</strong>逐步說明每個指令、資料流程與架構原理，加深理解。</li>
+        <ol style="padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem;">
+          <li><strong>需求確立與計畫撰寫：</strong>分析大專生主題收集痛點，定調單一核心功能，撰寫六大計畫項目。</li>
+          <li><strong>核心邏輯開發 (v1.0)：</strong>運用正規表達式匹配與記憶體/JSON 狀態管理，完成第一版初次提交（Commit 1）。</li>
+          <li><strong>問題發掘與功能改善 (v2.0)：</strong>在實際測試時發現缺乏單筆管理與手動輸入分類過於繁瑣，規劃智慧關鍵字識別與領域搜尋。</li>
+          <li><strong>邊界修正與強健性增補：</strong>發現使用者輸入越界編號會引發例外，增補型態驗證與防呆捕捉。</li>
+          <li><strong>自動化驗證與網頁整合：</strong>撰寫 <code>test_bot.py</code> 覆蓋率 100% 通過，並打造網頁 LINE 模擬器與成果簡報。</li>
+        </ol>
+      </section>
+
+      <!-- 區塊 5：AI 協作與檢查修正經驗 -->
+      <section class="section-card" id="ai-collab">
+        <div class="section-header">
+          <span class="section-badge">四、AI 協作</span>
+          <h2>使用工具、代表性指令與檢查修正 AI 的經驗</h2>
+        </div>
+        
+        <ul class="info-list">
+          <li class="info-item">
+            <strong>使用 AI 工具：</strong>Antigravity Agent (Google DeepMind - Gemini 3.8 Flash High 模型)。
+          </li>
+          <li class="info-item">
+            <strong>代表性提示指令 (Prompt)：</strong>
+            <div class="code-snippet" style="display: block; margin-top: 6px; padding: 10px;">
+              「請依照我的 LINE Bot 專題資料，升級 bot.py 加入智慧關鍵字自動分類、領域篩選與單筆刪除功能，並加入嚴格的防呆捕捉與自動化測試腳本。」
+            </div>
+          </li>
+          <li class="info-item">
+            <strong>關鍵經驗：檢查或修正 AI 產出的經驗（重要評量重點）：</strong>
+            <div class="alert-box-warning">
+              <strong>【發現問題】</strong> 在請 AI 初版生成「單筆刪除靈感」功能時，AI 直接撰寫了 <code>self.ideas.pop(int(arg) - 1)</code>。當我在終端機實測輸入 <code>刪除：99</code>（編號超出範圍）或 <code>刪除：abc</code>（非數字格式）時，程式直接噴出 <code>IndexError</code> 與 <code>ValueError</code>，導致機器人整個中斷崩潰！<br><br>
+              <strong>【人工檢查與修正】</strong> 我及時發現這個漏洞，明確要求 AI 加上 <code>try-except ValueError</code> 與 <code>target_idx > len(self.ideas)</code> 的邊界判斷，將例外轉換為友善的「提示目前有效範圍」警示，成功修復系統致命 Bug！
+            </div>
+          </li>
         </ul>
       </section>
 
-      <!-- 實測證明表格 -->
-      <section class="section-card">
+      <!-- 區塊 6：實測證明結果表格 -->
+      <section class="section-card" id="test-results">
         <div class="section-header">
-          <span class="section-badge">項目 6 & 實測證明</span>
-          <h2>測試計畫與實測結果對照表</h2>
+          <span class="section-badge">五、測試結果</span>
+          <h2>三個核心測試情境之預期與實際結果（實測證明）</h2>
         </div>
-        <p style="font-size: 0.9rem; color: #64748b;">本表格記錄本機自動化測試腳本 (`python3 test_bot.py`) 實測執行產出之輸入、預期與實際結果：</p>
-        
-        <table class="test-table">
+        <p style="font-size: 0.9rem; color: #64748b;">
+          以下為本機執行 <code>python3 test_bot.py</code> 的實測數據對照表（亦可使用右側模擬器親自驗證）：
+        </p>
+
+        <table class="data-table">
           <thead>
             <tr>
-              <th style="width: 14%;">情境</th>
-              <th style="width: 28%;">輸入內容</th>
-              <th style="width: 26%;">預期結果</th>
-              <th style="width: 22%;">實際結果摘要</th>
+              <th style="width: 15%;">測試編號</th>
+              <th style="width: 25%;">測試輸入內容</th>
+              <th style="width: 28%;">預期結果</th>
+              <th style="width: 22%;">實際執行結果</th>
               <th style="width: 10%;">判定</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>情境 1<br>(完整正常)</strong></td>
-              <td><span class="code-snippet">靈感：AI在醫療診斷的倫理議題 分類：醫學倫理</span></td>
-              <td>成功儲存主題與分類，回覆確認卡片與提示</td>
-              <td>成功儲存為第 1 筆點子，回傳帶有 📌 與 🏷️ 標籤之確認文字</td>
+              <td><strong>情境 1<br>(自動分類)</strong></td>
+              <td><span class="code-snippet">靈感：生成式 AI 在程式教學之成效評估</span></td>
+              <td>未輸入分類，但能自動推測識別為【資訊科技】並成功存檔</td>
+              <td>回傳 📌 主題與 🏷️ 分類【資訊科技】及智慧識別標記</td>
               <td><span class="badge-pass">PASS ✅</span></td>
             </tr>
             <tr>
-              <td><strong>情境 2<br>(空白缺漏)</strong></td>
-              <td><span class="code-snippet">靈感：</span></td>
-              <td>觸發防呆警示，不寫入空資料，提示格式範例</td>
-              <td>回覆警告「請輸入要記錄的報告靈感主題」，資料筆數維持 0 筆</td>
+              <td><strong>情境 2<br>(領域篩選)</strong></td>
+              <td><span class="code-snippet">查看：資訊科技</span></td>
+              <td>精準過濾其他領域，僅列出屬於「資訊科技」之報告題目</td>
+              <td>精準顯示科技類題目，未出現其他無關學科</td>
               <td><span class="badge-pass">PASS ✅</span></td>
             </tr>
             <tr>
-              <td><strong>情境 3<br>(調閱與未知)</strong></td>
-              <td>
-                1. <span class="code-snippet">查看靈感</span><br>
-                2. <span class="code-snippet">吃飽沒</span>
-              </td>
-              <td>
-                1. 條列目前所有主題<br>
-                2. 提供支援指令說明清單
-              </td>
-              <td>
-                1. 正確回傳所有記錄點子列表<br>
-                2. 友善招呼並列出支援指令手冊
-              </td>
+              <td><strong>情境 3<br>(防呆防護)</strong></td>
+              <td><span class="code-snippet">刪除：99</span></td>
+              <td>辨識編號超出範圍，提示有效編號區間，系統不當機</td>
+              <td>提示「找不到編號 99，目前範圍 1~2」，資料完整無損</td>
               <td><span class="badge-pass">PASS ✅</span></td>
             </tr>
           </tbody>
         </table>
       </section>
 
-      <!-- 目前進度與課後改善規劃 -->
-      <section class="section-card">
+      <!-- 區塊 7：五頁成果簡報展示區 -->
+      <section class="section-card" id="slides">
         <div class="section-header">
-          <span class="section-badge">評量亮點</span>
-          <h2>目前進度與課後改善版規劃</h2>
+          <span class="section-badge">六、成果簡報 (Slides)</span>
+          <h2>成果簡報檢視專區（共 5 頁，每頁呈現一重點）</h2>
         </div>
-        <div style="font-size: 0.92rem; line-height: 1.7;">
-          <p><strong>🎯 今日課堂第一版完成進度：</strong></p>
-          <ul style="padding-left: 20px; margin-bottom: 14px;">
-            <li>完成專題核心邏輯設計 (`bot.py`)，具備即時記錄、學科分類與清單調閱。</li>
-            <li>完成自動化測試程式 (`test_bot.py`)，三個情境 100% 通過。</li>
-            <li>完成開發紀錄網頁 (`index.html`) 與 LINE 實測模擬器。</li>
-            <li>完成 Git 初版初始化與 Commit 存檔。</li>
-          </ul>
+        <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 12px;">
+          點選右上角「🖨️ 匯出成果簡報/計畫 PDF」按鈕，即可將下列 5 頁自動排版為標準 5 頁簡報 PDF：
+        </p>
 
-          <p><strong>🚀 課後改善版（預計升級項目）：</strong></p>
-          <ul style="padding-left: 20px;">
-            <li><strong>改善項目 1：</strong>串接 LINE Messaging API 與 Webhook 雲端部署，直接加入真實 LINE 好友操作。</li>
-            <li><strong>改善項目 2：</strong>新增「AI 智慧關鍵字自動推薦分類」，使用者即使只輸入主題，AI 也會自動推測學科領域。</li>
-            <li><strong>改善項目 3：</strong>增加「一鍵匯出 Markdown 報告大綱草稿」功能，點子直接變報告。</li>
-          </ul>
+        <div class="slides-container">
+          <!-- Slide 1 -->
+          <div class="slide-card">
+            <span class="slide-page-num">Slide 1 / 5</span>
+            <h3>🎯 專題名稱、使用對象與想解決的問題</h3>
+            <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
+              <li><strong>專題名稱：</strong>大學生報告主題發想_搜集機器人（IdeaCatcher Bot）</li>
+              <li><strong>使用對象：</strong>大專院校學生、常需進行分組報告與期末論文的同學。</li>
+              <li><strong>解決痛點：</strong>日常生活冒出絕佳報告點子但常「飛掉」，隨手記在備忘錄又雜亂散落。</li>
+              <li><strong>解決策略：</strong>在最熟悉的 LINE 中，透過自然指令即時捕捉、智慧歸類並隨時檢索。</li>
+            </ul>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="slide-card">
+            <span class="slide-page-num">Slide 2 / 5</span>
+            <h3>⚙️ 核心功能與對話範例 (v2.0 改善版)</h3>
+            <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
+              <li><strong>核心功能：</strong>點子即時記錄、智慧學科推測、領域搜尋調閱與單筆靈感管理。</li>
+              <li><strong>對話範例 1（智慧自動歸類）：</strong>輸入「靈感：AI 在醫療應用」👉 自動標記【資訊科技】並回覆確認。</li>
+              <li><strong>對話範例 2（精準篩選調閱）：</strong>輸入「查看：資訊科技」👉 精準列出科技領域的所有點子。</li>
+              <li><strong>對話範例 3（異常防呆提示）：</strong>輸入「刪除：99」👉 提示有效編號範圍，避免系統錯誤。</li>
+            </ul>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="slide-card">
+            <span class="slide-page-num">Slide 3 / 5</span>
+            <h3>🧪 實際操作與測試結果 (實測證明)</h3>
+            <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
+              <li><strong>測試 1 (自動分類)：</strong>輸入「靈感：生成式 AI 在程式教學」👉 成功自動分類為資訊科技（PASS ✅）</li>
+              <li><strong>測試 2 (領域搜尋)：</strong>輸入「查看：資訊科技」👉 精準篩選出對應主題，無關領域不出現（PASS ✅）</li>
+              <li><strong>測試 3 (越界防呆)：</strong>輸入「刪除：99」👉 提示找不到編號，資料庫長度保持安全（PASS ✅）</li>
+              <li><strong>測試總結：</strong>單元測試 <code>test_bot.py</code> 5 項測試全數通過，系統強健無漏洞。</li>
+            </ul>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="slide-card">
+            <span class="slide-page-num">Slide 4 / 5</span>
+            <h3>🤖 AI 如何協助，以及我如何檢查或修正</h3>
+            <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
+              <li><strong>AI 工具與分工：</strong>使用 Antigravity Agent 協同架構程式碼、正規表達式與單元測試。</li>
+              <li><strong>關鍵檢查與修正經歷：</strong>
+                AI 初版刪除邏輯未做邊界檢查，輸入越界編號時拋出 <code>IndexError</code> 當機。我主動發現問題並引導 AI 補強例外捕捉與提示，將系統健壯度提升至產品級水準。
+              </li>
+              <li><strong>心得體會：</strong>AI 是優秀的加速器，但工程師的「人工審查與邊界測試」是系統可靠度的最後防線。</li>
+            </ul>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="slide-card">
+            <span class="slide-page-num">Slide 5 / 5</span>
+            <h3>🌟 心得、限制與下一步成果連結</h3>
+            <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
+              <li><strong>學習心得：</strong>掌握了聊天機器人架構、防呆設計原則與前後版本迭代的工程方法。</li>
+              <li><strong>已知限制與下一步：</strong>目前為本機 Python 核心；課後下一步將串接 LINE Messaging API 並部署至 Render 雲端平台。</li>
+              <li><strong>成果連結資訊：</strong>
+                <ul>
+                  <li>GitHub 專案連結：<code>https://github.com/juku1128/idea-bot</code></li>
+                  <li>開發紀錄網頁連結：<code>https://juku1128.github.io/idea-bot/</code></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 區塊 8：成果連結與 e學苑繳交文字 -->
+      <section class="section-card" id="submission">
+        <div class="section-header">
+          <span class="section-badge">七、成果連結 & 繳交文字</span>
+          <h2>e學苑線上文字欄繳交範本</h2>
+        </div>
+        <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">
+          推送到 GitHub 後，可直接複製下方框內文字貼到 e學苑「線上文字」欄：
+        </p>
+
+        <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-family: monospace; font-size: 0.9rem; line-height: 1.8;">
+          專題名稱：大學生報告主題發想_搜集機器人 (v2.0 改善版)<br>
+          GitHub 專案連結：https://github.com/juku1128/idea-bot<br>
+          開發紀錄網頁連結：https://juku1128.github.io/idea-bot/<br>
+          實測證明位置（網頁段落）：開發紀錄網頁「五、測試結果」實測證明表格與右側 LINE 模擬器
+        </div>
+      </section>
+
+      <!-- 區塊 9：心得、限制與安全規範 -->
+      <section class="section-card" id="security">
+        <div class="section-header">
+          <span class="section-badge">八、安全與限制</span>
+          <h2>安全性規範與已知限制說明</h2>
+        </div>
+        <div class="alert-box">
+          <strong>🔒 安全金鑰合規聲明：</strong><br>
+          本專案嚴格遵守金鑰安全規範。專案中 LINE Messaging API 金鑰皆以環境變數佔位文字說明（<code>YOUR_LINE_CHANNEL_SECRET_PLACEHOLDER</code>），絕無任何真實金鑰、通行碼或個人敏感資料外洩至程式庫或公開網頁。
         </div>
       </section>
 
     </main>
 
-    <!-- 右側：擬真 LINE 聊天室實測模擬器 -->
+    <!-- 右側：擬真 LINE 模擬器 (v2.0) -->
     <aside class="simulator-panel">
       <div class="phone-frame">
         <div class="phone-screen">
@@ -594,46 +831,68 @@
           <div class="chat-header">
             <div class="chat-bot-avatar">🤖</div>
             <div>
-              <div class="chat-title">報告主題發想搜集Bot</div>
-              <div class="chat-status">🟢 線上模擬執行中</div>
+              <div class="chat-title">報告主題發想Bot (v2.0)</div>
+              <div class="chat-status">🟢 改善版在線測試中</div>
             </div>
           </div>
 
           <div class="chat-messages" id="chatMessages">
-            <div class="chat-bubble bubble-bot">👋 您好！我是「報告主題發想_搜集機器人」。
-隨時把您的報告靈感告訴我，我會幫您分類保存好！
+            <div class="chat-bubble bubble-bot">👋 您好！我是「報告主題發想_搜集機器人」(v2.0 改善版)。
 
-💡 試試點擊下方的「快速測試按鈕」或直接打字！</div>
+✨ 本版新增功能：
+1. 智慧自動分類（無需手動打分類）
+2. 領域篩選（查看：科技）
+3. 單筆刪除（刪除：1）
+
+💡 點擊下方快速按鈕即可現場實測！</div>
           </div>
 
-          <!-- 快速測試情境按鈕 -->
+          <!-- 快速測試按鈕 (包含 v2.0 改善功能) -->
           <div class="quick-presets">
-            <button class="preset-btn" onclick="sendPreset('情境1')">⚡ 正常輸入</button>
-            <button class="preset-btn" onclick="sendPreset('情境2')">⚡ 空白防呆</button>
-            <button class="preset-btn" onclick="sendPreset('情境3')">⚡ 查看靈感</button>
-            <button class="preset-btn" onclick="sendPreset('未支援')">⚡ 未知指令</button>
+            <button class="preset-btn" onclick="sendPreset('自動分類')">⚡ 1.智慧分類</button>
+            <button class="preset-btn" onclick="sendPreset('篩選')">⚡ 2.領域篩選</button>
+            <button class="preset-btn" onclick="sendPreset('越界刪除')">⚡ 3.越界防呆</button>
+            <button class="preset-btn" onclick="sendPreset('正常刪除')">⚡ 4.正常刪除</button>
+            <button class="preset-btn" onclick="sendPreset('查看全部')">⚡ 5.查看全部</button>
           </div>
 
           <!-- 輸入列 -->
           <div class="chat-input-bar">
-            <input type="text" id="userInput" class="chat-input" placeholder="輸入「靈感：... 分類：...」" onkeydown="if(event.key==='Enter') sendMessage()">
+            <input type="text" id="userInput" class="chat-input" placeholder="輸入靈感、搜尋或刪除..." onkeydown="if(event.key==='Enter') sendMessage()">
             <button class="chat-send-btn" onclick="sendMessage()">➤</button>
           </div>
 
         </div>
       </div>
       <p style="text-align: center; font-size: 0.8rem; color: #64748b; margin-top: 10px;">
-        📱 網頁內嵌互動模擬器（與本機 Python 核心邏輯完全一致）
+        📱 實測證明模擬器（邏輯與本機 Python 完全同步）
       </p>
     </aside>
 
   </div>
 
   <script>
-    // 前端模擬器資料儲存與邏輯（與 bot.py 邏輯保持一致）
+    // 前端模擬器資料儲存與邏輯（與 bot.py v2.0 完全一致）
     let ideas = [
-      { topic: "社群媒體對大學生焦慮的影響", category: "社會心理" }
+      { topic: "社群媒體對大學生焦慮之影響", category: "社會心理" }
     ];
+
+    const KEYWORD_MAP = {
+      "資訊科技": ["ai", "人工智慧", "演算法", "區塊鏈", "程式", "資工", "大數據", "深度學習"],
+      "社會心理": ["心理", "焦慮", "憂鬱", "情緒", "社群", "人際", "壓力"],
+      "商管企管": ["行銷", "廣告", "商業", "esg", "永續", "財務", "創業"],
+      "醫學健康": ["醫療", "健康", "疾病", "護理", "睡眠", "飲食"]
+    };
+
+    function autoDetect(topic) {
+      const lower = topic.toLowerCase();
+      for (const [cat, kws] of Object.entries(KEYWORD_MAP)) {
+        for (const kw of kws) {
+          if (lower.includes(kw)) return cat;
+        }
+      }
+      return "一般/其他";
+    }
 
     function appendMessage(sender, text) {
       const container = document.getElementById('chatMessages');
@@ -652,48 +911,85 @@
       if (recordMatch) {
         const content = text.slice(recordMatch[0].length).trim();
         if (!content) {
-          return "⚠️ 請輸入要記錄的報告靈感主題喔！\n💡 正確格式範例：\n   • 「靈感：智慧農業應用 分類：資工」\n   • 或直接輸入「靈感：ESG 永續經營策略」";
+          return "⚠️ 請輸入要記錄的報告靈感主題喔！\n💡 正確格式範例：\n   • 智慧分類：「靈感：生成式 AI 在醫療的應用」\n   • 自訂分類：「靈感：永續農業 分類：商管」";
         }
 
         const catMatch = content.match(/[\s,，]+(分類|類別)[:：]\s*(.+)$/);
         let topic = content;
-        let category = "一般/未分類";
+        let category = "";
+        let isAuto = false;
 
         if (catMatch) {
           category = catMatch[2].trim();
           topic = content.slice(0, catMatch.index).trim();
+        } else {
+          category = autoDetect(topic);
+          isAuto = true;
         }
 
-        if (!topic) {
-          return "⚠️ 靈感主題不可為空白！請在「靈感：」後填寫報告主題內容。";
-        }
+        if (!topic) return "⚠️ 靈感主題不可為空白！";
 
         ideas.push({ topic, category });
-        return `✅ 已為您成功記錄報告靈感！\n📌 主題：${topic}\n🏷️ 分類：${category}\n💡 提示：隨時輸入「查看靈感」即可調閱所有已儲存的主題。`;
+        const autoNote = isAuto ? "（✨ 系統已為您智慧識別歸類）" : "";
+        return `✅ 已為您成功記錄報告靈感！\n📌 主題：${topic}\n🏷️ 分類：${category} ${autoNote}\n🔢 目前編號：第 ${ideas.length} 筆\n💡 提示：輸入「搜尋：[關鍵字]」隨時調閱。`;
       }
 
-      // 2. 查看靈感
-      if (["查看靈感", "查看清單", "清單", "列表", "調閱"].includes(text)) {
-        if (ideas.length === 0) {
-          return "📋 目前尚未儲存任何報告靈感喔！\n💡 快試試傳送「靈感：[主題] 分類：[學科]」來記錄您的第一個點子吧！";
-        }
-        let reply = `📋 目前已收集的報告點子清單（共 ${ideas.length} 則）：\n`;
-        ideas.forEach((item, i) => {
-          reply += `${i + 1}. [${item.category}] ${item.topic}\n`;
+      // 2. 搜尋 / 篩選
+      const searchMatch = text.match(/^(搜尋|查看|篩選|查)[:：]\s*(.+)$/);
+      if (searchMatch) {
+        const kw = searchMatch[2].trim().toLowerCase();
+        const matched = [];
+        ideas.forEach((item, idx) => {
+          if (item.category.toLowerCase().includes(kw) || item.topic.toLowerCase().includes(kw)) {
+            matched.push({ idx: idx + 1, item });
+          }
         });
-        reply += "\n💡 繼續傳送「靈感：[主題]」來添加新點子！";
-        return reply;
+
+        if (matched.length === 0) {
+          return `🔍 找不到與「${searchMatch[2].trim()}」相符的報告主題。\n💡 提示：輸入「查看靈感」可檢視所有主題。`;
+        }
+
+        let res = `🔍 「${searchMatch[2].trim()}」相關報告點子篩選結果（共 ${matched.length} 則）：\n`;
+        matched.forEach(m => {
+          res += `${m.idx}. [${m.item.category}] ${m.item.topic}\n`;
+        });
+        return res;
       }
 
-      // 3. 清空
+      // 3. 查看全部
+      if (["查看靈感", "查看清單", "清單", "列表", "全部靈感"].includes(text)) {
+        if (ideas.length === 0) return "📋 目前資料庫內沒有任何報告靈感喔！";
+        let res = `📋 目前已收集的報告點子清單（共 ${ideas.length} 則）：\n`;
+        ideas.forEach((item, i) => {
+          res += `${i + 1}. [${item.category}] ${item.topic}\n`;
+        });
+        res += "\n💡 提示：輸入「刪除：[編號]」可移除指定點子。";
+        return res;
+      }
+
+      // 4. 單筆刪除
+      const delMatch = text.match(/^刪除[:：]\s*(.*)$/);
+      if (delMatch) {
+        const arg = delMatch[1].trim();
+        if (!arg) return "⚠️ 請提供要刪除的靈感編號！例如：「刪除：1」。";
+        const idx = parseInt(arg, 10);
+        if (isNaN(idx)) return `⚠️ 輸入的編號「${arg}」不是有效數字！`;
+        if (idx < 1 || idx > ideas.length) {
+          return `⚠️ 找不到編號 ${idx} 的報告點子！\n💡 目前有效編號範圍為 1 ~ ${ideas.length}。`;
+        }
+        const removed = ideas.splice(idx - 1, 1)[0];
+        return `🗑️ 已成功刪除編號 ${idx} 的報告主題！\n📌 移除內容：[${removed.category}] ${removed.topic}\n📊 剩餘數量：${ideas.length} 則`;
+      }
+
+      // 5. 清空
       if (["清空靈感", "清除靈感"].includes(text)) {
         const count = ideas.length;
         ideas = [];
-        return `🗑️ 已成功清空靈感清單！（共清除了 ${count} 則主題）`;
+        return `🗑️ 已成功清空靈感清單！（共清除了 ${count} 則）`;
       }
 
-      // 4. 未支援指令
-      return "👋 您好！我是「大學生報告主題發想_搜集機器人」。\n我可以幫您隨手捕捉稍縱即逝的報告靈感！\n\n🛠️ 目前支援指令：\n1. 記錄靈感：「靈感：[主題] 分類：[學科]」\n2. 調閱靈感：「查看靈感」或「清單」\n3. 清空資料：「清空靈感」";
+      // 6. 未支援
+      return "👋 您好！我是「報告主題發想_搜集機器人」(v2.0 改善版)。\n\n🛠️ 支援指令：\n1. 記錄：「靈感：[主題]」（智慧自動分類）\n2. 篩選：「查看：[分類]」或「搜尋：[關鍵字]」\n3. 清單：「查看靈感」\n4. 刪除：「刪除：[編號]」";
     }
 
     function sendMessage() {
@@ -712,14 +1008,16 @@
 
     function sendPreset(type) {
       let text = "";
-      if (type === '情境1') {
-        text = "靈感：AI在醫療診斷的倫理議題 分類：醫學倫理";
-      } else if (type === '情境2') {
-        text = "靈感：";
-      } else if (type === '情境3') {
+      if (type === '自動分類') {
+        text = "靈感：生成式 AI 在程式教學之成效評估";
+      } else if (type === '篩選') {
+        text = "查看：資訊科技";
+      } else if (type === '越界刪除') {
+        text = "刪除：99";
+      } else if (type === '正常刪除') {
+        text = "刪除：1";
+      } else if (type === '查看全部') {
         text = "查看靈感";
-      } else if (type === '未支援') {
-        text = "今天天氣真好";
       }
       
       appendMessage('user', text);
@@ -731,12 +1029,12 @@
 
     function resetSimulator() {
       ideas = [
-        { topic: "社群媒體對大學生焦慮的影響", category: "社會心理" }
+        { topic: "社群媒體對大學生焦慮之影響", category: "社會心理" }
       ];
       const container = document.getElementById('chatMessages');
       container.innerHTML = `
         <div class="chat-bubble bubble-bot">👋 模擬器已重置為初始狀態！
-隨時輸入「靈感：[主題] 分類：[學科]」或點擊上方預設按鈕進行實測。</div>
+隨時點擊上方快捷按鈕或直接輸入進行實測。</div>
       `;
     }
   </script>
