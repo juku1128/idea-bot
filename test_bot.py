@@ -52,12 +52,12 @@ class TestIdeaBotV2(unittest.TestCase):
     def test_improvement_3_auto_categorization(self):
         """
         改善測試 3：智慧關鍵字自動分類
-        輸入：「靈感：心理壓力與大學生睡眠品質」
-        預期：未輸入分類，但能依關鍵字自動識別歸類為【社會心理】或【醫學健康】。
+        輸入：「靈感：心理壓力與焦慮情緒之調適」
+        預期：未輸入分類，但能依關鍵字自動識別歸類為【社會心理】。
         """
-        res = self.bot.handle_message("靈感：心理壓力與大學生睡眠品質")
+        res = self.bot.handle_message("靈感：心理壓力與焦慮情緒之調適")
         self.assertIn("已為您成功記錄報告靈感", res)
-        self.assertTrue("社會心理" in res or "醫學健康" in res)
+        self.assertIn("社會心理", res)
         self.assertIn("智慧識別領域", res)
 
     def test_improvement_4_search_and_filter(self):
