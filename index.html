@@ -193,7 +193,7 @@
       margin-right: 6px;
     }
 
-    /* 比較與測試表格 */
+    /* 資料表格 */
     .data-table {
       width: 100%;
       border-collapse: collapse;
@@ -221,15 +221,6 @@
       font-size: 0.8rem;
       font-weight: bold;
       display: inline-block;
-    }
-
-    .badge-v1 {
-      background: #e2e8f0;
-      color: #475569;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      font-weight: bold;
     }
 
     .badge-v2 {
@@ -266,6 +257,28 @@
       border-radius: 0 8px 8px 0;
       font-size: 0.92rem;
       margin: 12px 0;
+    }
+
+    .quote-box {
+      background: #f0fdf4;
+      border-left: 4px solid var(--primary);
+      padding: 16px 20px;
+      border-radius: 0 10px 10px 0;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #166534;
+      margin: 14px 0;
+    }
+
+    .placeholder-box {
+      border: 2px dashed #94a3b8;
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 24px;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.9rem;
+      margin: 14px 0;
     }
 
     /* 成果簡報投影片模組 */
@@ -457,7 +470,7 @@
       background: var(--primary-dark);
     }
 
-    /* 列印特定樣式 (支援一鍵匯出乾淨 PDF) */
+    /* 列印特定樣式 (支援一鍵匯出乾淨 5 頁 PDF) */
     @media print {
       body {
         background: white;
@@ -510,10 +523,25 @@
     <!-- 左側：專題開發紀錄與成果簡報 -->
     <main>
 
+      <!-- 基本資訊區 -->
+      <section class="section-card">
+        <div class="section-header">
+          <span class="section-badge">專案基本資訊</span>
+          <h2>作者與專題身分資訊</h2>
+        </div>
+        <ul class="info-list">
+          <li class="info-item"><strong>專題名稱 / 機器人名稱：</strong>大學生報告主題發想_搜集機器人（IdeaCatcher Bot）</li>
+          <li class="info-item"><strong>作者真實姓名：</strong>【待補：請填寫您的真實姓名】</li>
+          <li class="info-item"><strong>學生學號：</strong>【待補：請填寫您的學號】</li>
+          <li class="info-item"><strong>GitHub 專案倉庫：</strong><a href="https://github.com/juku1128/idea-bot" target="_blank" class="code-snippet">https://github.com/juku1128/idea-bot</a></li>
+          <li class="info-item"><strong>GitHub Pages 網頁：</strong><a href="https://juku1128.github.io/idea-bot/" target="_blank" class="code-snippet">https://juku1128.github.io/idea-bot/</a></li>
+        </ul>
+      </section>
+
       <!-- 區塊 1：課後改善版重點與前後差異對照 -->
       <section class="section-card" id="improvement">
         <div class="section-header">
-          <span class="section-badge-purple">改善版亮點</span>
+          <span class="section-badge-purple">改善版核心</span>
           <h2>課後作業改善版 (v2.0) 核心成果與前後差異</h2>
         </div>
         <p style="font-size: 0.95rem; margin-bottom: 12px;">
@@ -580,11 +608,11 @@
         </ul>
       </section>
 
-      <!-- 區塊 3：操作示範（對話範例） -->
+      <!-- 區塊 3：操作示範（對話範例 & 實測證明展示） -->
       <section class="section-card" id="demo">
         <div class="section-header">
           <span class="section-badge">二、操作示範</span>
-          <h2>對話範例（正常使用、搜尋與防呆提示）</h2>
+          <h2>對話範例與實測展示</h2>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
@@ -614,13 +642,14 @@
           </div>
         </div>
 
-        <div style="margin-top: 14px; background: #fff1f2; padding: 16px; border-radius: 10px; border: 1px solid #fecdd3;">
-          <h4 style="color: #be123c; margin-bottom: 8px;">⚠️ 改善示範 3：越界刪除防呆提示</h4>
-          <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 4px;">使用者輸入：<span class="code-snippet">刪除：99</span></p>
-          <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 4px;">Bot 回覆：</p>
-          <div style="font-size: 0.85rem; background: white; padding: 8px; border-radius: 6px; border: 1px solid #fecdd3;">
-            ⚠️ 找不到編號 99 的報告點子！<br>
-            💡 目前有效編號範圍為 1 ~ 2（輸入「查看靈感」可確認最新編號）。
+        <!-- 實測截圖預留位置（依使用者要求，等親自測試後放入，不擅自編造） -->
+        <div style="margin-top: 18px;">
+          <h4 style="margin-bottom: 8px; color: #334155;">📸 親自實測證明截圖（保留截圖位置）</h4>
+          <div class="placeholder-box">
+            <strong>【待補：待使用者依修正後版本完成親自實測後，截圖或短影片置入於此】</strong><br>
+            <span style="font-size: 0.85rem; color: #94a3b8;">
+              （目前已由本機自動化測試腳本 <code>python3 test_bot.py</code> 產出完整輸入與實際結果；您亦可隨時在右側 LINE 模擬器現場操作驗證）
+            </span>
           </div>
         </div>
       </section>
@@ -633,23 +662,23 @@
         </div>
         <ol style="padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem;">
           <li><strong>需求確立與計畫撰寫：</strong>分析大專生主題收集痛點，定調單一核心功能，撰寫六大計畫項目。</li>
-          <li><strong>核心邏輯開發 (v1.0)：</strong>運用正規表達式匹配與記憶體/JSON 狀態管理，完成第一版初次提交（Commit 1）。</li>
-          <li><strong>問題發掘與功能改善 (v2.0)：</strong>在實際測試時發現缺乏單筆管理與手動輸入分類過於繁瑣，規劃智慧關鍵字識別與領域搜尋。</li>
-          <li><strong>邊界修正與強健性增補：</strong>發現使用者輸入越界編號會引發例外，增補型態驗證與防呆捕捉。</li>
-          <li><strong>自動化驗證與網頁整合：</strong>撰寫 <code>test_bot.py</code> 覆蓋率 100% 通過，並打造網頁 LINE 模擬器與成果簡報。</li>
+          <li><strong>核心邏輯開發 (v1.0)：</strong>運用正規表達式匹配與狀態管理，完成第一版初次提交（Commit 1: <code>4dc5fe7</code>）。</li>
+          <li><strong>發掘問題與升級 (v2.0)：</strong>實際測試發現手動輸入分類過繁瑣、點子多時難以查找，升級智慧關鍵字分類、領域篩選與單筆刪除（Commit 2: <code>75edcdd</code>）。</li>
+          <li><strong>嚴謹審查與堅持真實：</strong>使用者主動提出「有缺漏請不要自行編造，詢問我補上」，將外部網址、個人姓名學號與真實心得嚴格校正，確立誠實求是的開發流程。</li>
+          <li><strong>自動化驗證與網頁整合：</strong>撰寫 <code>test_bot.py</code> 驗證 5 項測試 100% 通過，並打造網頁 LINE 模擬器與 5 頁成果簡報（Commit 3: <code>00a5568</code>）。</li>
         </ol>
       </section>
 
-      <!-- 區塊 5：AI 協作與檢查修正經驗 -->
+      <!-- 區塊 5：AI 協作與真實檢查修正經驗 -->
       <section class="section-card" id="ai-collab">
         <div class="section-header">
           <span class="section-badge">四、AI 協作</span>
-          <h2>使用工具、代表性指令與檢查修正 AI 的經驗</h2>
+          <h2>使用工具、代表性指令與檢查修正 AI 的真實經驗</h2>
         </div>
         
         <ul class="info-list">
           <li class="info-item">
-            <strong>使用 AI 工具：</strong>Antigravity Agent (Google DeepMind - Gemini 3.8 Flash High 模型)。
+            <strong>使用 AI 工具：</strong>Antigravity Agent (Google DeepMind)。
           </li>
           <li class="info-item">
             <strong>代表性提示指令 (Prompt)：</strong>
@@ -658,10 +687,12 @@
             </div>
           </li>
           <li class="info-item">
-            <strong>關鍵經驗：檢查或修正 AI 產出的經驗（重要評量重點）：</strong>
+            <strong>檢查或修正 AI 產出的真實經驗（重要評量重點）：</strong>
             <div class="alert-box-warning">
-              <strong>【發現問題】</strong> 在請 AI 初版生成「單筆刪除靈感」功能時，AI 直接撰寫了 <code>self.ideas.pop(int(arg) - 1)</code>。當我在終端機實測輸入 <code>刪除：99</code>（編號超出範圍）或 <code>刪除：abc</code>（非數字格式）時，程式直接噴出 <code>IndexError</code> 與 <code>ValueError</code>，導致機器人整個中斷崩潰！<br><br>
-              <strong>【人工檢查與修正】</strong> 我及時發現這個漏洞，明確要求 AI 加上 <code>try-except ValueError</code> 與 <code>target_idx > len(self.ideas)</code> 的邊界判斷，將例外轉換為友善的「提示目前有效範圍」警示，成功修復系統致命 Bug！
+              <strong>【真實經驗 1：修正 Git 初始化與目錄架構】</strong><br>
+              最初 AI 在背景嘗試直接執行 <code>git add</code>，但遇到 macOS 沙盒權限確認。我察覺此資料夾應全新獨立管理，因此按下拒絕，並主動指示 AI「GIPINIT這個新的資料夾」，促使 AI 在獨立的「嘻嘻」資料夾中重新建立乾淨的 Git 倉庫，並於外層加入 <code>.gitignore</code> 隔離，有效避免兩個專案衝突。<br><br>
+              <strong>【真實經驗 2：堅持真實性原則，杜絕虛構】</strong><br>
+              我特別要求 AI：「裡面的內容若有缺漏請不要自行編造，請詢問我讓我補上。」促使 AI 主動全面盤點專案中的外部連結、姓名學號與個人心得，凡未確認者一律標註「待補」，落實了嚴謹求實的工程態度。
             </div>
           </li>
         </ul>
@@ -729,7 +760,8 @@
             <span class="slide-page-num">Slide 1 / 5</span>
             <h3>🎯 專題名稱、使用對象與想解決的問題</h3>
             <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
-              <li><strong>專題名稱：</strong>大學生報告主題發想_搜集機器人（IdeaCatcher Bot）</li>
+              <li><strong>專題 / 機器人名稱：</strong>大學生報告主題發想_搜集機器人（IdeaCatcher Bot）</li>
+              <li><strong>作者姓名：</strong>【待補：請填寫您的真實姓名】 ｜ <strong>學號：</strong>【待補：請填寫您的學號】</li>
               <li><strong>使用對象：</strong>大專院校學生、常需進行分組報告與期末論文的同學。</li>
               <li><strong>解決痛點：</strong>日常生活冒出絕佳報告點子但常「飛掉」，隨手記在備忘錄又雜亂散落。</li>
               <li><strong>解決策略：</strong>在最熟悉的 LINE 中，透過自然指令即時捕捉、智慧歸類並隨時檢索。</li>
@@ -756,7 +788,7 @@
               <li><strong>測試 1 (自動分類)：</strong>輸入「靈感：生成式 AI 在程式教學」👉 成功自動分類為資訊科技（PASS ✅）</li>
               <li><strong>測試 2 (領域搜尋)：</strong>輸入「查看：資訊科技」👉 精準篩選出對應主題，無關領域不出現（PASS ✅）</li>
               <li><strong>測試 3 (越界防呆)：</strong>輸入「刪除：99」👉 提示找不到編號，資料庫長度保持安全（PASS ✅）</li>
-              <li><strong>測試總結：</strong>單元測試 <code>test_bot.py</code> 5 項測試全數通過，系統強健無漏洞。</li>
+              <li><strong>實測截圖狀態：</strong>【待補：待使用者依修正後版本完成親自實測後，截圖置入於此】</li>
             </ul>
           </div>
 
@@ -766,20 +798,23 @@
             <h3>🤖 AI 如何協助，以及我如何檢查或修正</h3>
             <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
               <li><strong>AI 工具與分工：</strong>使用 Antigravity Agent 協同架構程式碼、正規表達式與單元測試。</li>
-              <li><strong>關鍵檢查與修正經歷：</strong>
-                AI 初版刪除邏輯未做邊界檢查，輸入越界編號時拋出 <code>IndexError</code> 當機。我主動發現問題並引導 AI 補強例外捕捉與提示，將系統健壯度提升至產品級水準。
+              <li><strong>真實檢查與修正經歷 1：</strong>
+                AI 原先在背景直接執行 <code>git add</code> 遭遇權限問題，我及時按下拒絕並指示「GIPINIT這個新的資料夾」，促使建立獨立倉庫並在 <code>.gitignore</code> 進行隔離。
               </li>
-              <li><strong>心得體會：</strong>AI 是優秀的加速器，但工程師的「人工審查與邊界測試」是系統可靠度的最後防線。</li>
+              <li><strong>真實檢查與修正經歷 2：</strong>
+                我特別要求 AI「內容有缺漏請不要自行編造，請詢問我補上」，嚴格要求標示待補並由人工確認，維護資料真實性。
+              </li>
             </ul>
           </div>
 
           <!-- Slide 5 -->
           <div class="slide-card">
             <span class="slide-page-num">Slide 5 / 5</span>
-            <h3>🌟 心得、限制與下一步成果連結</h3>
+            <h3>🌟 心得、限制與成果連結</h3>
             <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem;">
-              <li><strong>學習心得：</strong>掌握了聊天機器人架構、防呆設計原則與前後版本迭代的工程方法。</li>
-              <li><strong>已知限制與下一步：</strong>目前為本機 Python 核心；課後下一步將串接 LINE Messaging API 並部署至 Render 雲端平台。</li>
+              <li><strong>學習心得（真實反思）：</strong>
+                「我覺得用 Antigravity 寫程式真的可以學到很多新東西。像我之前較多是用 Gemini 的 Canvas 功能來寫，但他並不能幫我在本機內設計好程式，也不能直接連結到網路上、上傳 GitHub，也不太能具體和我解釋他到底修改了哪些地方。但現在在操作 Antigravity 的過程中，只要有不懂的都可以詢問他為何這樣改，他也會解釋得非常淺顯易懂。更厲害的是可以自動幫我操作電腦，git 存檔、上傳 GitHub，甚至是自己完成程式測試與紀錄。真的非常厲害。」
+              </li>
               <li><strong>成果連結資訊：</strong>
                 <ul>
                   <li>GitHub 專案連結：<code>https://github.com/juku1128/idea-bot</code></li>
@@ -809,10 +844,21 @@
         </div>
       </section>
 
-      <!-- 區塊 9：心得、限制與安全規範 -->
+      <!-- 區塊 9：真實個人心得 -->
+      <section class="section-card" id="reflection">
+        <div class="section-header">
+          <span class="section-badge">八、學習心得</span>
+          <h2>個人真實心得（Canvas 與 Antigravity 之對比）</h2>
+        </div>
+        <div class="quote-box">
+          「我覺得用 Antigravity 寫程式真的可以學到很多新東西。像我之前較多是用 Gemini 的 Canvas 功能來寫，但他並不能幫我在本機內設計好程式，也不能直接連結到網路上、上傳 GitHub，也不太能具體和我解釋他到底修改了哪些地方。但現在在操作 Antigravity 的過程中，只要有不懂的都可以詢問他為何這樣改，他也會解釋得非常淺顯易懂。更厲害的是可以自動幫我操作電腦，git 存檔、上傳 GitHub，甚至是自己完成程式測試與紀錄。真的非常厲害。」
+        </div>
+      </section>
+
+      <!-- 區塊 10：安全規範 -->
       <section class="section-card" id="security">
         <div class="section-header">
-          <span class="section-badge">八、安全與限制</span>
+          <span class="section-badge">九、安全與限制</span>
           <h2>安全性規範與已知限制說明</h2>
         </div>
         <div class="alert-box">
