@@ -905,8 +905,7 @@
             <div class="box-header">⚠️ 現行限制 (Current Limits)</div>
             <ul class="box-list">
               <li><strong>通訊串接層次：</strong>目前以本機 Python CLI 與 Web 前端模擬器呈現，尚未向 LINE 官方申請付費企業 Webhook 伺服器部署。</li>
-              <li><strong>單機資料庫：</strong>目前點子以本地 JSON 儲存，尚未串接雲端關聯式資料庫，跨裝置使用需依賴網頁端。</li>
-              <li><strong>大綱知識庫來源：</strong>大綱由領域語意規則動態客製生成，目前尚未即時爬取當年度最新學術文獻期刊。</li>
+              <li><strong>大綱生成機制：</strong>目前對於大綱的判斷還未變成自動 AI 智慧導入。而是有一個固定版本，當偵測到該領域關鍵字就會給出固定的大綱格式。</li>
             </ul>
           </div>
 
@@ -914,9 +913,8 @@
           <div class="box-card">
             <div class="box-header">🚀 下一步 (Next Steps)</div>
             <ul class="box-list">
-              <li><strong>學術文獻 API 串接：</strong>整合 arXiv / Google Scholar API，產出大綱時自動附上 3 篇真實權威期刊參考資料。</li>
-              <li><strong>多格式一鍵匯出：</strong>支援一鍵轉換為 16:9 簡報投影片檔 (.pptx) 與 Word (.docx) 期末小論文草稿。</li>
-              <li><strong>Supabase 雲端多端同步：</strong>手機 LINE 隨手傳，筆電網頁即時編修大綱，實現無縫跨裝置體驗。</li>
+              <li><strong>研究如何將網頁做成 LINE Bot：</strong>進一步探索如何將現有的網頁模擬器與後端邏輯串接至真實手機 LINE 平台。</li>
+              <li><strong>擴充關鍵字多元判斷：</strong>引入更多相關關鍵字，讓 AI 可以更多元自動判斷靈感的學術分類與適合的大綱。</li>
             </ul>
           </div>
 

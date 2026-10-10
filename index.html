@@ -849,11 +849,13 @@
               <li><strong>學習心得（真實反思）：</strong>
                 「我覺得用 Antigravity 寫程式真的可以學到很多新東西。像我之前較多是用 Gemini 的 Canvas 功能來寫，但他並不能幫我在本機內設計好程式，也不能直接連結到網路上、上傳 GitHub，也不太能具體和我解釋他到底修改了哪些地方。但現在在操作 Antigravity 的過程中，只要有不懂的都可以詢問他為何這樣改，他也會解釋得非常淺顯易懂。更厲害的是可以自動幫我操作電腦，git 存檔、上傳 GitHub，甚至是自己完成程式測試與紀錄。真的非常厲害。」
               </li>
-              <li><strong>現行作品限制：</strong>
-                目前以本機 Python CLI 與 Web 前端模擬器呈現，尚未申請 LINE 企業付費 Webhook 伺服器；大綱由領域語意規則動態客製生成，尚未即時聯網爬取最新期刊文獻。
+              <li><strong>現行作品限制 (Current Limits)：</strong><br>
+                • <strong>通訊串接層次</strong>：目前以本機 Python CLI 與 Web 前端模擬器呈現，尚未向 LINE 官方申請付費企業 Webhook 伺服器部署。<br>
+                • <strong>大綱生成機制</strong>：目前對於大綱的判斷還未變成自動 AI 智慧導入，而是有一個固定版本，當偵測到該領域關鍵字就會給出固定的大綱格式。
               </li>
-              <li><strong>下一步規劃 (Next Steps)：</strong>
-                串接 Google Scholar / arXiv API 自動推薦 3 篇真實權威期刊參考文獻；支援一鍵匯出為 16:9 投影片檔 (.pptx) 與 Word 論文草稿；串接雲端資料庫支援跨裝置無縫同步。
+              <li><strong>下一步規劃 (Next Steps)：</strong><br>
+                • <strong>研究如何將網頁做成 LINE Bot</strong>：進一步探索如何將現有的網頁模擬器與後端邏輯串接至真實手機 LINE 平台。<br>
+                • <strong>擴充多元關鍵字庫</strong>：引入更多相關關鍵字，讓 AI 可以更多元自動判斷靈感的學術分類與適合的大綱。
               </li>
             </ul>
           </div>
